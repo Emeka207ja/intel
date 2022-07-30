@@ -1,0 +1,60 @@
+.update_profile__loading{
+    background-color: rgb(178, 199, 192);
+    padding: 1rem;
+    color: rgb(86, 86, 121);
+    text-align: center;
+    text-transform: uppercase;
+}
+.update_profile__error{
+    background-color: rgb(226, 152, 152);
+    padding: 1rem;
+    color: rgb(227, 83, 83);
+    text-align: center;
+    text-transform: uppercase;
+}
+.update_profile__success{
+    background-color: rgb(80, 64, 249);
+    padding: 1rem;
+    color: rgb(205, 205, 218);
+    text-align: center;
+    text-transform: uppercase;
+}
+.profile_container{
+    margin: 2rem 3rem;
+   
+}
+.view_password{
+    position: absolute;
+    margin-top: -2rem;
+    margin-left: 14rem;
+}
+.view_password2{
+    position: absolute;
+    margin-top: -2rem;
+    margin-left: 14rem;
+}
+.view_password img,.view_password2 img{
+    width: 1rem;
+}
+.test{
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 1000px) {
+ .view_password{
+     right: 15rem;
+ }
+ .view_password2{
+    
+   right: 15rem;
+ }
+}
+@media only screen and (max-width: 1001px) {
+ .view_password{
+     right: 5rem;
+ }
+ .view_password2{
+    
+   right: 5rem;
+ }
+}

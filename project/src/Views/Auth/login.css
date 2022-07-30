@@ -1,0 +1,14 @@
+.login__loading{
+    background-color: rgb(178, 199, 192);
+    padding: 1rem;
+    color: rgb(86, 86, 121);
+    text-align: center;
+    text-transform: uppercase;
+}
+.login__error{
+    background-color: rgb(226, 152, 152);
+    padding: 1rem;
+    color: rgb(227, 83, 83);
+    text-align: center;
+    text-transform: uppercase;
+}

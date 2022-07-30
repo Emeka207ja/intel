@@ -1,0 +1,58 @@
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+html{
+    box-sizing: border-box;
+}
+.proof__containers{
+    margin: 0.6rem 2rem;
+}
+
+.proof__containers h3{
+    font-size: 1.3rem;
+}
+.proof__loading{
+    background-color: rgb(178, 199, 192);
+    padding: 1.5rem;
+    color: rgb(86, 86, 121);
+    text-align: center;
+}
+.proof__empty{
+    text-transform: uppercase;
+    background-color: rgb(89, 98, 95);
+    padding: 1.5rem;
+    color: rgb(230, 230, 237);
+    text-align: center;
+}
+.proof__error{
+    padding: 1.5rem;
+    background-color: rgb(218, 105, 105);
+    color: rgb(79, 47, 47);
+     text-align: center;
+}
+.proofs__item{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    grid-gap: 1rem;
+    align-items: center ;
+    /* padding: 1rem; */
+    justify-content: center;
+}
+.item{
+    background-color: rgb(233, 213, 184);
+    padding: 0.3rem 2rem;
+    display: grid;
+    color: rgb(112, 109, 109);
+    /* align-content: center; */
+}
+.proof__containers button{
+    padding: 0.4rem;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+.item img{
+    max-width: 100%;
+    object-fit: contain;
+}
