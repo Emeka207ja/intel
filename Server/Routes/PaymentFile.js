@@ -1,7 +1,9 @@
 import express from 'express'
 import { protect } from '../Util/protected.js'
+import cloudinary from '../Util/Cloudinary.js'
 import multer from 'multer'
 import path from 'path'
+
 const router = express.Router()
 
 const storage = multer.diskStorage({
@@ -31,9 +33,18 @@ const Proof = multer({
     }
 })
 
-router.route("/proof").post(protect, Proof.single('image'), (req, res) => {
-
-    res.json(req.file.path)
+router.route("/proof").post(protect, Proof.single('image'), async (req, res) => {
+    const file = req.file
+   try {
+     const uploadedFile = await cloudinary.uploader.upload(file, {
+        upload_preset:"demoReg"
+     })
+    //    console.log(uploadedFile)
+    //    res.json()
+   } catch (error) {
+    console.log(error)
+   }
+    // res.json(req.file.path)
     console.log(req.file)
 })
 export default router

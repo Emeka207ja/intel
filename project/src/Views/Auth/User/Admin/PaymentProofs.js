@@ -37,7 +37,7 @@ const PaymentProofs = () => {
           return (
             <div key={el._id} className='item py-3'>
               
-              <img src={`/profile${el.image}`}  />
+              <img src={el.image}  />
               <h3 className='py-2'>wallet: {el.wallet }</h3>
               <h3 className='py-2'>Firstname: {el.user[0].firstname }</h3>
               <h3 className='py-2'>lastname: {el.user[0].lastname }</h3>

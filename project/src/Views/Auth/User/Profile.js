@@ -25,17 +25,20 @@ const Profile = () => {
         const config = {
             headers: {
                 "Content-Type": "multipart/form-data",
-                Authorization:`Bearer ${userInfo.token}`
            }
         }
-        const file = e.target.files[0]
+        const image = e.target.files[0]
         const formData = new FormData()
-        formData.append("image",file)
+        
+        formData.append("file", image)
+        formData.append("upload_preset", "demoReg")
+        formData.append("cloud_name", "do133axxb")
+        
         try {
             setLoading(true)
-            const { data } = await axios.post("/api/profile", formData, config)
-            setImage(data)
-            console.log(data)
+            const { data } = await axios.post(" https://api.cloudinary.com/v1_1/do133axxb/image/upload", formData, config)
+            setImage(data.url)
+            console.log(data.url)
             setLoading(false)
         } catch (error) {
             setError(error.response.data.message)
@@ -66,7 +69,7 @@ const Profile = () => {
       <div className='profile__container'>
          
              <div className=" profile" >
-                   <div className='profile__img'> <img className="card-img-top profile__img" src={`/profile${userInfo&&userInfo.image}`} alt="Card image cap"/></div>
+                   <div className='profile__img'> <img className="card-img-top profile__img" src={userInfo&&userInfo.image} alt="Card image cap"/></div>
                     <div className="card-body profile__body">
                   <h5 className="card-title">welcome { userInfo&& userInfo.email}</h5>
                         {/* <p className="card-text">portfolio : 0 intel wave</p> */}

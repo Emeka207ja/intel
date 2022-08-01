@@ -19,11 +19,16 @@ const Register = () => {
   const [imageError, setImageError] = useState()
   const [signUpError, setSignUpError] = useState()
   const [imageSuccess, setImageSuccess] = useState(false)
+  const [selectedFile,setSelectedFile] = useState()
+  const [previewFile,setPreviewFile] = useState()
 
   const handleFile = async(e) => {
-    const file = e.target.files[0]
+    const image = e.target.files[0]
+    
     const formData = new FormData()
-    formData.append("image", file)
+    formData.append("file", image)
+    formData.append("upload_preset", "demoReg")
+    formData.append("cloud_name", "do133axxb")
     const config = {
           headers: {
             "Content-Type":"multipart/form-data"
@@ -31,10 +36,16 @@ const Register = () => {
         }
     try {
         setImageLoading(true)
-      const { data } = await axios.post("/api/profile", formData, config)
+      const { data } = await axios.post(" https://api.cloudinary.com/v1_1/do133axxb/image/upload", formData, config)
       
         if (data) {
-          setImage(data)
+          setImage(data.url)
+          const reader = new FileReader()
+          reader.readAsDataURL(image)
+          reader.onloadend = () => {
+            setPreviewFile(reader.result)
+          }
+          console.log(data)
       }
       setImageLoading(false)
       setImageSuccess(true)
@@ -47,6 +58,40 @@ const Register = () => {
    
 
   } 
+  const handleFileChange = async(e) => {
+    const image = e.target.files[0]
+    const reader = new FileReader()
+    reader.readAsDataURL(image)
+    reader.onloadend = () => {
+      setPreviewFile(reader.result)
+    }
+    const formData = new FormData()
+    formData.append("file", image)
+    formData.append("upload_preset", "demoReg")
+    formData.append("cloud_name", "do133axxb")
+    const config = {
+          headers: {
+            "Content-Type":"multipart/form-data"
+          }
+    }
+   try {
+     const { data } = await axios.post(" https://api.cloudinary.com/v1_1/do133axxb/image/upload", formData, config)
+     console.log(data)
+   } catch (error) {
+    console.log(error)
+   }
+       
+  }
+  // const preview = (file) => {
+  //   const reader = new FileReader()
+  //   reader.readAsDataURL(file)
+  //   reader.onloadend = () => {
+  //     setPreviewFile(reader.result)
+  //   }
+  // }
+  // const uploadFile = (base64EncodedImage) => {
+  //   console.log(base64EncodedImage)
+  // }
   // useEffect(() => {
   //   handleFile()
   // },[imageSuccess,imageLoading,imageError])
@@ -104,7 +149,7 @@ const Register = () => {
           </div>
           <div className='form-group'>
             <label className='mb-2 mt-1' htmlFor='password'>Confirm Password</label>
-            <input className='form-control' id='password' name='password' type='password' onChange={(e) => setPassword2(e.target.value)} value={password2}/>
+            <input className='form-control' id='password2' name='password2' type='password' onChange={(e) => setPassword2(e.target.value)} value={password2}/>
           </div>
           <div className='form-group'>
             <label  className='mb-2 mt-1' htmlFor='email'>Email</label>
@@ -112,7 +157,7 @@ const Register = () => {
           </div>
           <div className='form-group'>
             <label  className='mb-2 mt-1' htmlFor='email'>Who reffered you?</label>
-            <input className='form-control' type='email' id='email' placeholder='input your referral email' name='email' onChange={(e) => setReferral(e.target.value)} value={referral}/>
+            <input className='form-control' type='email' id='refemail' placeholder='input your referral email' name='email' onChange={(e) => setReferral(e.target.value)} value={referral}/>
           </div>
           <div className='mt-2'>
             {imageLoading&& <p className='image__loading'>fetching image...</p>}
@@ -121,11 +166,13 @@ const Register = () => {
           </div>
           <div className='form-group'>
             <label htmlFor='file' className='mb-2'>DISPLAY PICTURE</label>
-            <input className='form-control' id='file' name='file' type='file' onChange={handleFile }/>
+            <input className='form-control' id='file' name='file' type='file' value={selectedFile} onChange={handleFile}/>
           </div>
+          {previewFile && <img src={previewFile}  />}
           <button className='btn btn-primary form-control mt-2' disabled={imageLoading?true:false}>submit</button>
         </form>
-        <div>Already have an account? <Link to ='/login'>Click here</Link> </div>
+        <div>Already have an account? <Link to='/login'>Click here</Link> </div>
+        
       </div>
      
     </div>
