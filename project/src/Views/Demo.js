@@ -148,7 +148,7 @@ const Demo = () => {
                                 204,000 Intel = 1000 USDT
                       </h6>
                 <h6>you are eligible to buy with BNB smartchain with the equivalent amount in USDT
-                   <p> <Link to ='/login'>Purchase IntelWave</Link></p>
+                   <p> <Link to ='/register'>Purchase IntelWave</Link></p>
                       </h6>
             </section>
             <section className='footer'>
