@@ -47,7 +47,7 @@ const UsersPage = () => {
                   )
               })} */}
               {/*  */}
-              {users &&!loading &&              <table className='table users__table container '>
+              {users &&!loading &&            <div className='table-responsive'>  <table className='table users__table container '>
                   <thead>
                       <tr>
                           <th scope='col'>Id</th>
@@ -78,7 +78,7 @@ const UsersPage = () => {
                           )
                       })}
                   </tbody>
-              </table>}
+              </table> </div>}
           </div>
     </>
   )

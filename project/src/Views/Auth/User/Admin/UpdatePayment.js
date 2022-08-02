@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import './updateProof.css'
 const UpdatePayment = () => {
+    const { userInfo } = useSelector(state => state.login)
+    const navigate = useNavigate()
     const [intel,setIntel] = useState()
     const [status, setStatus] = useState()
     const [loading, setLoading] = useState(false)
@@ -60,7 +62,13 @@ const UpdatePayment = () => {
     }
     useEffect(() => {
         fetchUpdate()
-    }, [id])
+        // if (!userInfo.token ) {
+        //     Navigate("/register")
+        // }
+        // else if (userInfo.token && !userInfo.isAdmin) {
+        //     navigate("/profile")
+        // }
+    }, [id,userInfo])
   return (
       <>
           <div className='py-5 update__container'>

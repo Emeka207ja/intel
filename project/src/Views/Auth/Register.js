@@ -1,10 +1,14 @@
 import React, { useState,useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import bgimage from '../Img/intel.jpg'
 
 import axios from 'axios'
 import './register.css'
 const Register = () => {
+  const { userInfo } = useSelector(state => state.login)
+  const navigate = useNavigate()
   const [image, setImage] = useState()
   const [firstname, setFirstname] = useState()
   const [lastname, setLastname] = useState()
@@ -82,19 +86,12 @@ const Register = () => {
    }
        
   }
-  // const preview = (file) => {
-  //   const reader = new FileReader()
-  //   reader.readAsDataURL(file)
-  //   reader.onloadend = () => {
-  //     setPreviewFile(reader.result)
-  //   }
-  // }
-  // const uploadFile = (base64EncodedImage) => {
-  //   console.log(base64EncodedImage)
-  // }
-  // useEffect(() => {
-  //   handleFile()
-  // },[imageSuccess,imageLoading,imageError])
+  
+  useEffect(() => {
+    if (userInfo.token) {
+      navigate("/profile")
+    }
+  },[userInfo])
   const handleSignUp = async(e) => {
     e.preventDefault()
     try {

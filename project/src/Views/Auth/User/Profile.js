@@ -80,13 +80,27 @@ const Profile = () => {
                     </div>
               </div>
           
-                <div className="card text-center">
+                <div className="payment_section card text-center ">
                     <div className="card-header">
-                       Payment verification
+                       <h5>Intel Purchase Guideline</h5>
+              </div>
+              <div className='card-body'>
+                  <ol>
+                      <li>
+                          highlight and copy the trc20 USDT address below and make payment according to the pre-sale price 
+                          <p>TM6RRFfBMRxhQiM6HXLemoqA8akg7Cbu14</p>
+                      </li>
+                      <li>
+                         after payment, submit your proof of payment in the form below
+                      </li>
+                  </ol>
+              </div>
+                    <div className="card-header">
+                       <h5>Payment Verification</h5>
                     </div>
                     <div className="card-body">
                   <div className="card-title">
-                      {formLoading ? <p className='payment__loading'>submitting payment information</p> : formError ? <p className='payment__error'>{formError}</p> : proof ? <p className='payment__success'>{ proof}</p> : <p>make payment to this wallet address 0x1279A923012fcd7cEADcE7e4d54E9D4A19251E91 after payment, submit your proof of payment in the form below</p>}
+                      {formLoading ? <p className='payment__loading'>submitting payment information</p> : formError ? <p className='payment__error'>{formError}</p> : proof && <p className='payment__success'>{ proof}</p>  }
                   </div>
                   
                         <form className='container' onSubmit={handleSubmit}>
