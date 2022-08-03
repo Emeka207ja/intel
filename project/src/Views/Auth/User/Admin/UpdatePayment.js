@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import {  useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import './updateProof.css'
@@ -62,12 +62,12 @@ const UpdatePayment = () => {
     }
     useEffect(() => {
         fetchUpdate()
-        // if (!userInfo.token ) {
-        //     Navigate("/register")
-        // }
-        // else if (userInfo.token && !userInfo.isAdmin) {
-        //     navigate("/profile")
-        // }
+        if (!userInfo?.token ) {
+            navigate("/register")
+        }
+         if (userInfo?.token && !userInfo?.isAdmin) {
+            navigate("/profile")
+        }
     }, [id,userInfo])
   return (
       <>

@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { fetchUserProfile, updateUserProfile } from '../../../Actions/LoginAction'
 import axios from "axios"
@@ -9,6 +10,7 @@ const UpdateProfile = () => {
     // const {  failed,updating } = useSelector(state => state.UpdateProfile)
     
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [firstname,setFirstname] = useState()
     const [lastname,setlastname] = useState()
     const [email,setEmail] = useState()
@@ -47,6 +49,9 @@ const UpdateProfile = () => {
     useEffect(() => {
         fetchDetails()
         // dispatch(fetchUserProfile(id))
+        if (!userInfo?.token) {
+            navigate("/login")
+        }
        
     }, [])
 

@@ -88,7 +88,7 @@ const Register = () => {
   }
   
   useEffect(() => {
-    if (userInfo.token) {
+    if (userInfo?.token) {
       navigate("/profile")
     }
   },[userInfo])
