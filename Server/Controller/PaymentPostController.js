@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler"
- import Payment from "../Model/paymentModel.js"
+import Payment from "../Model/paymentModel.js"
+ import Paystack from "../Model/paystackModel.js"
 
  // @DESC Submit proof of payment
 // @ROUTE POST /api/payment
@@ -35,4 +36,23 @@ const fetchUserPayment = asyncHandler(async (req, res) => {
         throw new Error("no user")
     }
 })
- export{paymentHandler, fetchUserPayment}
+const sendPaystackPayment = asyncHandler(async(req,res) => {
+    const { status, reference, amount } = req.body
+    console.log(req.body)
+    try {
+        const payment = await Paystack.create({
+            Amount: amount,
+            payment_reference: reference,
+            payment_status: status,
+            user:req.user._id
+        })
+        if (payment) {
+            res.status(201).json({ message: "payment successful" })
+        }
+    } catch (error) {
+        res.status(400)
+        throw new Error(error.message)
+        console.log(error.message)
+    }
+})
+ export{paymentHandler, fetchUserPayment,sendPaystackPayment}

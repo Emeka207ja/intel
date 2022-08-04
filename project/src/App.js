@@ -8,6 +8,7 @@ import PaymentProofs from './Views/Auth/User/Admin/PaymentProofs';
 import UpdatePayment from './Views/Auth/User/Admin/UpdatePayment';
 import UpdateUser from './Views/Auth/User/Admin/UpdateUser';
 import UsersPage from './Views/Auth/User/Admin/UsersPage';
+import PaystackPage from './Views/Auth/User/PaystackPage';
 import Profile from './Views/Auth/User/Profile';
 import UpdateProfile from './Views/Auth/User/UpdateProfile';
 import Demo from './Views/Demo';
@@ -36,6 +37,7 @@ function App() {
         <Route path='/updateprofile/:id' exact element={<UpdateProfile/> }/>
         <Route path='/resetpassword/:id' exact element={<ResetPassword/> }/>
         <Route path='/forgotpassword' exact element={<ForgotPassword/> }/>
+        <Route path='/paystack/:id' exact element={<PaystackPage/> }/>
       </Routes>
     </div>
   );

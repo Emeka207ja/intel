@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler'
 import Payment from '../Model/paymentModel.js'
 import User from '../Model/UserModel.js'
+import Paystack from '../Model/paystackModel.js'
 
 // @DESC fetch all payments
 // @ROUTE GET /api/admin/payment
@@ -155,5 +156,9 @@ const deletePayment = asyncHandler(async (req, res) => {
        throw new Error(error.message)
    }
 })
+
+const fetchAllPaystackPayments = asyncHandler(async (req, res) => { })
+
+
 
 export{adminPaymentHandler,fetchUsersHandler,fetchSingleUser,updateUser,updatePayment,fetchSinglePayment,deleteUser,deletePayment}

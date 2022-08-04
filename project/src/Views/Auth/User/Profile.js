@@ -15,10 +15,13 @@ const Profile = () => {
     const [proof,setProof] = useState()
     const navigate = useNavigate()
     const { loading, error, userInfo, success } = useSelector(state => state.login)
+
+   
     useEffect(() => {
         if (!userInfo) {
             navigate("/login")
         }
+        
     }, [userInfo, navigate])
     
     const handleFile = async (e) => {
@@ -65,6 +68,9 @@ const Profile = () => {
             
         }
     }
+    const navigateToPaystackPage = () => {
+        navigate(`/paystack/${userInfo?._id}`)
+    }
   return (
       <div className='profile__container'>
          
@@ -94,6 +100,7 @@ const Profile = () => {
                          after payment, submit your proof of payment in the form below
                       </li>
                   </ol>
+                  <button className='btn btn-primary' onClick={navigateToPaystackPage}>PAY WITH CARD</button>
               </div>
                     <div className="card-header">
                        <h5>Payment Verification</h5>

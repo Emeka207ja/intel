@@ -125,4 +125,18 @@ const forgotPassword = asyncHandler(async (req, res) => {
     
    }
 })
-export{signUpHandler,signInHandler,fetchUserProfile,updateUserProfile}
+const fetchPaystackPublicKey = asyncHandler(async (req, res) => {
+    try {
+        const user = req.user._id
+        if (user) {
+            res.status(200).json(process.env.PAYSTACK_PUBLIC_KEY)
+        } else {
+            res.status(400)
+            throw new Error("aunthorised")
+        }
+    } catch (error) {
+        res.status(404)
+        throw new Error(error.message)
+    }
+})
+export{signUpHandler,signInHandler,fetchUserProfile,updateUserProfile,fetchPaystackPublicKey}
