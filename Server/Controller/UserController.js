@@ -112,7 +112,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
         }
         const resetToken = user.generateResetToken(user._id)
        await user.save()
-       const resetUrl = `http://localhost:3000/resetpassword/${resetToken}`
+       const resetUrl = `http://intelwave.herokuapp.com/resetpassword/${resetToken}`
        const message = `
        <h1> you have requested a password reset</h1>
        <p>please go to this link to reset your password,Link is valid for 15 minutes</p>
