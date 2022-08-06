@@ -1,6 +1,8 @@
 import asyncHandler from 'express-async-handler'
+import jwt from "jsonwebtoken"
 import User from '../Model/UserModel.js'
 import generateToken from '../Util/generateToken.js'
+import sendEmail from '../Util/SendEmail.js'
 
 //signUp controller
 const signUpHandler = asyncHandler(async (req, res) => {
@@ -108,22 +110,61 @@ const forgotPassword = asyncHandler(async (req, res) => {
             res.status(404)
             throw new Error("email could not be sent, please register")
         }
-        const resetToken = user.generateResetToken()
+        const resetToken = user.generateResetToken(user._id)
        await user.save()
        const resetUrl = `http://localhost:3000/resetpassword/${resetToken}`
        const message = `
        <h1> you have requested a password reset</h1>
-       <p>please go to this link to reset your password</p>
-       <a href =${resetUrl} clicktracking=off>${resetUrl}</a>
+       <p>please go to this link to reset your password,Link is valid for 15 minutes</p>
+       <a href =${resetUrl}>${resetUrl}</a>
        `
        try {
-        
+           sendEmail({ to: email, subject: "password reset", text: message })
+           res.status(201).json({message:"password reset link sent, please check your inbox or spam folder"})
+
        } catch (error) {
-        
+           user.resetPasswordToken = undefined
+           user.resetPasswordExpire = undefined
+           await user.save()
+           res.status(400)
+           throw new Error(error.message)
        }
    } catch (error) {
-    
+       res.status(500)
+       throw new Error(error.message)
    }
+})
+//password reset
+const resetPasswordContoller = asyncHandler(async (req, res) => {
+    const id = req.params.id
+    const { password } = req.body
+    if (!password) {
+        res.status(400)
+        throw new Error("please provide password")
+    }
+    const  decoded = jwt.verify(id, process.env.JWT_SECRET)
+    // console.log(decoded)
+   
+    try {
+        const user = await User.findOne({
+            resetPasswordToken: decoded.id,
+            resetPasswordExpire:{$gt:Date.now()}
+        })
+         console.log(user)
+        if (!user) {
+            res.status(400)
+            throw new Error("invalid reset token")
+        }
+        user.password = password
+        user.resetPasswordToken = undefined
+       user. resetPasswordExpire = undefined
+        await user.save()
+        res.status(201).json({message:"password changed successfully,welcome back!"})
+    } catch (error) {
+        console.log(error)
+        res.status(500)
+        throw new Error(error.message)
+    }
 })
 const fetchPaystackPublicKey = asyncHandler(async (req, res) => {
     try {
@@ -139,4 +180,4 @@ const fetchPaystackPublicKey = asyncHandler(async (req, res) => {
         throw new Error(error.message)
     }
 })
-export{signUpHandler,signInHandler,fetchUserProfile,updateUserProfile,fetchPaystackPublicKey}
+export{signUpHandler,signInHandler,fetchUserProfile,updateUserProfile,fetchPaystackPublicKey,forgotPassword,resetPasswordContoller}

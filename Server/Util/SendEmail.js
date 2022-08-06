@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer'
 
- const sendEmail = (options) => {
+const sendEmail = (options) => {
+     console.log(options)
     const transporter = nodemailer.createTransport({
         service: process.env.EMAIL_SERVICE,
         auth: {
@@ -9,7 +10,7 @@ import nodemailer from 'nodemailer'
         }
     })
     const mailOptions = {
-        from: process.env.EMAIL_FROM,
+        from: process.env.EMAIL_USERNAME,
         to: options.to,
         subject: options.subject,
         html:options.text

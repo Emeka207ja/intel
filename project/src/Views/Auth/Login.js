@@ -35,7 +35,7 @@ const Login = () => {
             <input type='password'className='form-control' placeholder='please input your password' onChange={(e)=>setPassword(e.target.value)}/>
           </div>
           <button className='form-control btn btn-primary mt-2'>login</button>
-         {/* <Link to='/forgotpassword'>Forgot Password</Link> */}
+         <Link to='/forgotpassword'>Forgot Password</Link>
         </form>
       </div>
     </div>
