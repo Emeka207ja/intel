@@ -1,0 +1,24 @@
+.chart_container {
+    height: 100vh;
+    margin: 3rem;
+    text-align: center;
+}
+
+.chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+}
+
+.chart_con {
+    width: 88%;
+    height: 100%;
+}
+
+.select_container{
+    display: flex;
+    justify-content: space-around;
+    /* grid-template-columns: repeat(2,1fr);
+    grid-gap: 1rem; */
+}

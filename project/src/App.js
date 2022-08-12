@@ -14,6 +14,7 @@ import UpdateProfile from './Views/Auth/User/UpdateProfile';
 import Demo from './Views/Demo';
 import ForgotPassword from './Views/ForgotPassword';
 import Home from './Views/Home';
+import LiveChart from './Views/LiveChart';
 import ResetPassword from './Views/ResetPassword';
 import Welcome from './Views/WelcomePage';
 
@@ -38,6 +39,7 @@ function App() {
         <Route path='/resetpassword/:id' exact element={<ResetPassword/> }/>
         <Route path='/forgotpassword' exact element={<ForgotPassword/> }/>
         <Route path='/paystack/:id' exact element={<PaystackPage/> }/>
+        <Route path='/live' exact element={<LiveChart/> }/>
       </Routes>
     </div>
   );
