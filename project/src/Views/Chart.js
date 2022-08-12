@@ -26,7 +26,7 @@ const Chart = (props) => {
   
   
   const { datas,price,Time } = props
-  // console.log(price)
+  console.log(price)
   
   
   const data= {
@@ -49,16 +49,11 @@ const Chart = (props) => {
     // responsive:true,
      maintainAspectRatio:false,
         scales: {
-          y: {
-            
-              beginAtZero:true
-           
-          },
-          x: {
-            
-              beginAtZero:true
-           
-          }
+          // y: {
+          //   ticks: {
+          //     beginAtZero:true
+          //   }
+          // }]
         
     },
     Legend: {
@@ -76,7 +71,7 @@ const Chart = (props) => {
           {/* <Line data={data} options={ opts} /> */}
           <div className='chart_con'>
               {/* <chart  data={data} options={ opts} /> */}
-              <Line data={data} />
+              <Line data={data} options={ options}/>
           </div>
     </div>
   )
