@@ -153,8 +153,8 @@ const Register = () => {
             <input className='form-control' type='email' id='email' name='email' onChange={(e) => setEmail(e.target.value)} value={email}/>
           </div>
           <div className='form-group'>
-            <label  className='mb-2 mt-1' htmlFor='email'>Who reffered you?</label>
-            <input className='form-control' type='email' id='refemail' placeholder='input your referral email' name='email' onChange={(e) => setReferral(e.target.value)} value={referral}/>
+            <label  className='mb-2 mt-1' htmlFor='email'>Referral Email: please this should be an Email and its OPTIONAL! </label>
+            <input className='form-control' type='email' id='refemail' placeholder='Example@gmail.com' name='email' onChange={(e) => setReferral(e.target.value)} value={referral}/>
           </div>
           <div className='mt-2'>
             {imageLoading&& <p className='image__loading'>fetching image...</p>}
@@ -162,7 +162,7 @@ const Register = () => {
             {imageSuccess&& <p className='image__success'>image selected</p>}
           </div>
           <div className='form-group'>
-            <label htmlFor='file' className='mb-2'>DISPLAY PICTURE</label>
+            <label htmlFor='file' className='mb-2'>Display Picture</label>
             <input className='form-control' id='file' name='file' type='file' value={selectedFile} onChange={handleFile}/>
           </div>
           {previewFile && <img src={previewFile}  />}
