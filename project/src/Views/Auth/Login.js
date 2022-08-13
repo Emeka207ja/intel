@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
  const {loading,success,error,userInfo}= useSelector(state=>state.login)
-
+/// handler
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(loginAction(email, password))
