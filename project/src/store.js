@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { fetchProfileReducer, loginReducer, updateProfileReducer } from './Reducers/LoginReducer'
 import { deletePaymentReducer, deleteUserReducer, fetchAllProofReducer, fetchSinglePaymentProofReducer, fetchUsersReducer } from './Reducers/AdminReducer'
 import UsersPage from './Views/Auth/User/Admin/UsersPage'
-import { paystackPaymentReducer } from './Reducers/PaymentReducer'
+import { coinUpdateReducer, paystackPaymentReducer } from './Reducers/PaymentReducer'
 
 const reducer = combineReducers({
     login: loginReducer,
@@ -16,7 +16,8 @@ const reducer = combineReducers({
     fetchAllProof: fetchAllProofReducer,
     fetchProfile: fetchProfileReducer,
     updateProfile: updateProfileReducer,
-    paystackPayment:paystackPaymentReducer
+    paystackPayment: paystackPaymentReducer,
+    coinUpdate:coinUpdateReducer
 })
 
 

@@ -49,6 +49,11 @@ const userModel = mongoose.Schema({
         type: String,
         required: true,
         default:"intelwaveTeam"
+    },
+    wallet: {
+        type: String,
+        required: true,
+        default:"intelwaveWallet"
     }
    
 }, {

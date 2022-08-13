@@ -1,5 +1,5 @@
 import express from 'express'
-import { fetchPaystackPublicKey, fetchUserProfile, forgotPassword, resetPasswordContoller, signInHandler, signUpHandler, updateUserProfile } from '../Controller/UserController.js'
+import { fetchCoin, fetchPaystackPublicKey, fetchUserProfile, forgotPassword, resetPasswordContoller, signInHandler, signUpHandler, updateCoinTotal, updateUserProfile } from '../Controller/UserController.js'
 import { protect } from '../Util/protected.js'
 
 
@@ -14,7 +14,9 @@ router.route('/resetpassword/:id').put(resetPasswordContoller)
 
 router.route('/updateprofile/:id').get(protect,fetchUserProfile)
 router.route('/updateprofile/:id').put(protect, updateUserProfile)
+router.route('/coin/:id').get(protect, fetchCoin)
 
 router.route('/paystack').get(protect,fetchPaystackPublicKey)
+router.route('/paystack/:id').put(protect,updateCoinTotal)
 
 export default router

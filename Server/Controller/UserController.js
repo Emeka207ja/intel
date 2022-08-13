@@ -1,3 +1,4 @@
+import { json } from 'express'
 import asyncHandler from 'express-async-handler'
 import jwt from "jsonwebtoken"
 import User from '../Model/UserModel.js'
@@ -6,7 +7,7 @@ import sendEmail from '../Util/SendEmail.js'
 
 //signUp controller
 const signUpHandler = asyncHandler(async (req, res) => {
-    const { firstname, lastname, email, image, password,referral } = req.body
+    const { firstname, lastname, email, image, password,referral,wallet } = req.body
     
     //checking if any of the form inputs is empty
     if (!firstname || !lastname || !email || !image || !password) {
@@ -180,4 +181,35 @@ const fetchPaystackPublicKey = asyncHandler(async (req, res) => {
         throw new Error(error.message)
     }
 })
-export{signUpHandler,signInHandler,fetchUserProfile,updateUserProfile,fetchPaystackPublicKey,forgotPassword,resetPasswordContoller}
+
+const updateCoinTotal = asyncHandler(async (req, res) => {
+    const { coin } = req.body
+    console.log("coin",coin)
+    try {
+        const user = await User.findById(req.params.id)
+        if (user) {
+            user.intel = +user.intel + parseFloat(coin)
+
+            const updatedUser = await user.save()
+             res.status(201).json({message:"sent"})
+        }
+       
+    } catch (error) {
+        res.status(404)
+        throw new Error(error.message)
+    }
+})
+const fetchCoin = asyncHandler(async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id)
+        if (user) {
+           
+             res.status(201).json(user.intel)
+        }
+       
+    } catch (error) {
+        res.status(404)
+        throw new Error(error.message)
+    }
+})
+export{signUpHandler,signInHandler,fetchUserProfile,updateUserProfile,fetchPaystackPublicKey,forgotPassword,resetPasswordContoller,updateCoinTotal,fetchCoin}

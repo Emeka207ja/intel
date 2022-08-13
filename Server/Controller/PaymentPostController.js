@@ -6,7 +6,7 @@ import Payment from "../Model/paymentModel.js"
 // @ROUTE POST /api/payment
 // @ACCESS private
 const paymentHandler = asyncHandler(async (req, res) => {
-    console.log(req.body)
+    
     const { wallet, image } = req.body
     if (!wallet || !image) {
         res.status(400)
@@ -38,7 +38,7 @@ const fetchUserPayment = asyncHandler(async (req, res) => {
 })
 const sendPaystackPayment = asyncHandler(async(req,res) => {
     const { status, reference, amount } = req.body
-    console.log(req.body)
+   
     try {
         const payment = await Paystack.create({
             Amount: amount,

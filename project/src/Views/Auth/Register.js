@@ -10,6 +10,7 @@ const Register = () => {
   const { userInfo } = useSelector(state => state.login)
   const navigate = useNavigate()
   const [image, setImage] = useState()
+  const [wallet, setWallet] = useState()
   const [firstname, setFirstname] = useState()
   const [lastname, setLastname] = useState()
   const [email, setEmail] = useState()
@@ -101,7 +102,7 @@ const Register = () => {
         setLoading(false)
         return
       }
-     const { data } = await axios.post("/api/user", { firstname, lastname, email, image, password,referral })
+     const { data } = await axios.post("/api/user", { firstname, lastname, email, image, password,referral,wallet })
      if (data) {
        setSuccess(data.message)
       }
@@ -122,6 +123,7 @@ const Register = () => {
     setPassword2('')
     setImage('')
     setReferral("")
+    setWallet("")
   }
   return (
     <div className='container-fluid py-4'>
@@ -139,6 +141,11 @@ const Register = () => {
           <div className='form-group'>
             <label className='mb-2 mt-1' htmlFor='lastname'>Lastname</label>
             <input className='form-control' id='lastname' name='lastname' onChange={(e) => setLastname(e.target.value)} value={lastname}/>
+          </div>
+          <div className='form-group'>
+            <label className='mb-2 mt-1' htmlFor='lastname'>Wallet</label>
+            <span className='m-3 text-danger'>* Please we accept only Trust Wallet and Meta Mask *</span>
+            <input className='form-control' id='lastname' name='lastname' placeholder='Paste your Trust wallet or Meta-mask address' onChange={(e) => setWallet(e.target.value)} value={wallet}/>
           </div>
           <div className='form-group'>
             <label className='mb-2 mt-1' htmlFor='password'>Password</label>

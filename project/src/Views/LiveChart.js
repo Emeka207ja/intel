@@ -2,6 +2,7 @@ import React,{useState,useEffect,useRef} from 'react'
 import axios from "axios"
 import Chart from './Chart'
 import "./chart.css"
+import TradingView from './TradingView'
 const LiveChart = () => {
     const [pair, setPair] = useState("CVC-USD")
     const [currency, setCurrency] = useState()
@@ -11,6 +12,7 @@ const LiveChart = () => {
     const [priceHistory, setPriceHistory] = useState()
     const [date,setDate] = useState()
     const [time,setTime] = useState(60)
+    const [TVpair,setTVpair] = useState("CVC")
     const ws = useRef(null)
     
     let first = useRef(false)
@@ -52,24 +54,26 @@ const LiveChart = () => {
          const historicalData = async () => {
              try {
                 let histArr =[]
-                 const { data } = await axios.get(`https://api.pro.coinbase.com/products/${pair}/candles?granularity=${time}`)
+                 const { data } = await axios.get(`https://api.pro.coinbase.com/products/${pair}`)
+                 setTVpair(data.id)
+                 console.log(data.id)
                  
-                let priceArray = data.map(val => { return val[4] })
-                const turned= priceArray.reverse()
-                 setPriceHistory(turned)
+                // let priceArray = data.map(val => { return val[4] })
+                // const turned= priceArray.reverse()
+                //  setPriceHistory(turned)
                  
-                 let dates = data.map(val => {
-                    const ts = val[0]
-                    let date = new Date(ts * 1000)
-                    let day = date.getDate()
-                    let month = date.getMonth() + 1
-                    let year = date.getFullYear()
-                     let final = `${month}-${day}-${year}`
+                //  let dates = data.map(val => {
+                //     const ts = val[0]
+                //     let date = new Date(ts * 1000)
+                //     let day = date.getDate()
+                //     let month = date.getMonth() + 1
+                //     let year = date.getFullYear()
+                //      let final = `${month}-${day}-${year}`
                     
-                    return final
-                 })
-                 dates.reverse()
-                 setDate(dates)
+                //     return final
+                //  })
+                //  dates.reverse()
+                //  setDate(dates)
                 //   console.log(dates)
                ///candles?granularity=86400
             } catch (error) {
@@ -117,7 +121,8 @@ const LiveChart = () => {
                 }
                  
         }
-    }, [pair,time])
+    }, [pair, time])
+    console.log("TP",TVpair)
 
     // useEffect(() => {
     //     if (!first.current) {
@@ -184,7 +189,7 @@ const LiveChart = () => {
   return (
     <div className='chart_container'>
           <h2>Live market</h2>
-          <div className='select_container'>
+          <div className=''>
                 <select value={pair} onChange={handlePairChange} className="mb-3 first_select">
                     {
                         currency?.map((el,index) => {
@@ -196,19 +201,20 @@ const LiveChart = () => {
               </select>
               <div>
                   
-                    <select value={time} onChange={(e)=>setTime(e.target.value)}>
+                    {/* <select value={time} onChange={(e)=>setTime(e.target.value)}>
                         <option value="60">1M</option>
                         <option value="300">5M</option>
                         <option value="900">15M</option>
                         <option value="3600">1Hr</option>
                         <option value="86400">1D</option>
                        
-                    </select>
+                    </select> */}
               </div>
               </div>
          
           {loading ? <h3 className='text-primary'>Select coin</h3> : data && <h3  className='text-primary'>{data.product_id} : ${data.price}   </h3>}
-          <Chart price={price} datas={priceHistory} Time={ date} />
+          {/* <Chart price={price} datas={priceHistory} Time={ date} /> */}
+          <TradingView TPair={TVpair } />
          
     </div>
   )

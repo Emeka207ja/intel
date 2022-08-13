@@ -12,15 +12,32 @@ const Profile = () => {
     const [formLoading,setFormLoading] =useState(false)
     const [formError, setFormError] = useState()
     const [wallet, setWallet] = useState()
-    const [proof,setProof] = useState()
+    const [proof, setProof] = useState()
+    const [coin,setCoin] = useState()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const { loading, error, userInfo, success } = useSelector(state => state.login)
 
-   
+    const fetchCoinHandler = async() => {
+        try {
+           const config ={
+               headers: {
+                   "Content-type": "application/json",
+                   Authorization:`Bearer ${userInfo.token}`
+            }
+           }
+            const { data } = await axios.get(`/api/user/coin/${userInfo._id}`, config)
+            setCoin(data)
+           console.log(data)
+       } catch (error) {
+        console.log(error.response)
+       }
+   }
     useEffect(() => {
         if (!userInfo) {
             navigate("/login")
         }
+        fetchCoinHandler()
         
     }, [userInfo, navigate])
     
@@ -80,7 +97,7 @@ const Profile = () => {
                   <h5 className="card-title">welcome { userInfo&& userInfo.email}</h5>
                         {/* <p className="card-text">portfolio : 0 intel wave</p> */}
                         <p className="card-text">user id : { userInfo&& userInfo._id}</p>
-                        <p className="card-text">intelwave portfolio : { userInfo&& userInfo.intel}</p>
+                        <p className="card-text">intelwave portfolio : {coin&& coin}</p>
                         <p className="card-text">referral bonus : { userInfo&& userInfo.referal}</p>
                        
                     </div>
