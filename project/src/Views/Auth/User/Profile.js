@@ -88,6 +88,9 @@ const Profile = () => {
     const navigateToPaystackPage = () => {
         navigate(`/paystack/${userInfo?._id}`)
     }
+    const navigateToPaymentHistory = () => {
+        navigate(`/paymenthistory/${userInfo?._id}`)
+    }
   return (
       <div className='profile__container'>
          
@@ -129,19 +132,23 @@ const Profile = () => {
                   
                         <form className='container' onSubmit={handleSubmit}>
                             <div className='form-group'>
-                          <input className='form-control' placeholder='input your wallet address to receive your purchased coin' value={wallet} onChange={ (e)=>setWallet(e.target.value)} />
-                      </div>
-                      <div>
-                          {ImgLoading && <p className='image__loading'>uploading image please wait...</p>}
-                          {image && <p className='image__success'>selected! </p>}
-                          {ImgError && <p className='image__error'>{ImgError }</p>}
-                      </div>
+                                <input className='form-control' placeholder='input your wallet address to receive your purchased coin' value={wallet} onChange={ (e)=>setWallet(e.target.value)} />
+                            </div>
+                            <div>
+                                {ImgLoading && <p className='image__loading'>uploading image please wait...</p>}
+                                {image && <p className='image__success'>selected! </p>}
+                                {ImgError && <p className='image__error'>{ImgError }</p>}
+                            </div>
                             <div className='form-group mt-2'>
-                                <input type='file'className='form-control' onChange={handleFile} />
+                                 <input type='file'className='form-control' onChange={handleFile} />
                             </div>
                             <button className='form-control btn btn-primary mt-2' disabled={ImgLoading?true:false}>submit details</button>
-                        </form>
-                    </div>
+                       </form>
+                  <div>
+                      
+                  </div>
+                    <buton className= "btn btn-primary mt-3" onClick= {navigateToPaymentHistory}> VIEW PAYMENT HISTORY</buton>
+                  </div>
               <div className="card-footer text-muted">
                   <h3>Contact Admin</h3>
                   <div>

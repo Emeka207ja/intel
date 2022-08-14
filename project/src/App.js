@@ -5,9 +5,11 @@ import About from './Views/About';
 import Login from './Views/Auth/Login';
 import Register from './Views/Auth/Register';
 import PaymentProofs from './Views/Auth/User/Admin/PaymentProofs';
+import PaystackPaymentProofs from './Views/Auth/User/Admin/PaystackPaymentProofs';
 import UpdatePayment from './Views/Auth/User/Admin/UpdatePayment';
 import UpdateUser from './Views/Auth/User/Admin/UpdateUser';
 import UsersPage from './Views/Auth/User/Admin/UsersPage';
+import PaymentHistory from './Views/Auth/User/PaymentHistory';
 import PaystackPage from './Views/Auth/User/PaystackPage';
 import Profile from './Views/Auth/User/Profile';
 import UpdateProfile from './Views/Auth/User/UpdateProfile';
@@ -40,6 +42,8 @@ function App() {
         <Route path='/forgotpassword' exact element={<ForgotPassword/> }/>
         <Route path='/paystack/:id' exact element={<PaystackPage/> }/>
         <Route path='/live' exact element={<LiveChart/> }/>
+        <Route path='/paymenthistory/:id' exact element={<PaymentHistory/> }/>
+        <Route path='/paystackhistory' exact element={<PaystackPaymentProofs/> }/>
       </Routes>
     </div>
   );

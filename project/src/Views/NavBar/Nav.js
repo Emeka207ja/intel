@@ -17,6 +17,9 @@ const NavMenu = () => {
     const handleUpdate = (id) => {
         navigate(`/updateprofile/${id}`)
     }
+    const navigateToPaystackPaymentProofs = () => {
+        navigate("/paystackhistory")
+    }
     return (
         <div className=''>
             <Navbar bg='dark' variant='dark' sticky='top' className='d-flex justify-content-between px-3 active' expand='lg'>
@@ -44,6 +47,9 @@ const NavMenu = () => {
                             </NavDropdown.Item>
                             <NavDropdown.Item >
                                 {userInfo?.token&&<button className='btn' onClick={()=>{handleUpdate(userInfo?._id)}}>Update Profile</button>}
+                            </NavDropdown.Item>
+                            <NavDropdown.Item >
+                                {userInfo?.token&&userInfo?.isAdmin &&<button className='btn' onClick={navigateToPaystackPaymentProofs}>Paystack Payments</button>}
                             </NavDropdown.Item>
                         </NavDropdown>   
                    </Nav>

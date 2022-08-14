@@ -1,4 +1,5 @@
 import asyncHandler from "express-async-handler"
+import User from "../Model/UserModel.js"
 import Payment from "../Model/paymentModel.js"
  import Paystack from "../Model/paystackModel.js"
 
@@ -55,4 +56,32 @@ const sendPaystackPayment = asyncHandler(async(req,res) => {
         console.log(error.message)
     }
 })
- export{paymentHandler, fetchUserPayment,sendPaystackPayment}
+// fetch the payment status of a client for admin
+const fetchClientsPayments = asyncHandler(async (req, res) => {
+    try {
+        const user = await Paystack.find({}).populate({ path: "user", model: User }) 
+         if (!user) {
+            res.status(404)
+            throw new Error("not found")
+        }
+        res.status(200).json(user)
+    } catch (error) {
+         res.status(500)
+        throw new Error(error.message)
+    }
+})
+// fetch the payment status of a client for user
+const fetchClientPayment = asyncHandler(async (req, res) => {
+    try {
+        const user = await Paystack.find({user: req.user._id}).sort({updatedAt:-1})
+        if (!user) {
+            res.status(406)
+            throw new Error("not accepted")
+        }
+        res.status(200).json(user)
+    } catch (error) {
+        res.status(500)
+        throw new Error(error.message)
+    }
+})
+ export{paymentHandler, fetchUserPayment,sendPaystackPayment,fetchClientPayment,fetchClientsPayments}

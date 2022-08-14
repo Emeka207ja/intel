@@ -1,0 +1,36 @@
+.payment_history__container{
+    margin: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    grid-gap: 1rem;
+    align-items: center;
+}
+.payment_history__items,.payment_history__item{
+    border-bottom: 5px solid rgb(94, 94, 238);
+    background-color: rgb(109, 107, 107);
+    color: rgb(223, 211, 211);
+    padding:2rem;
+    border-radius: 2rem;
+    display: grid;
+    align-items: center;
+}
+.payment_history__loading{
+    background-color: rgb(178, 199, 192);
+    padding: 1rem;
+    color: rgb(86, 86, 121);
+    text-align: center;
+    text-transform: uppercase;
+}
+.payment_history__item button{
+    width: 35%;
+    margin: 0.5rem;
+    padding: 0.6rem;
+    border-radius: 1rem;
+    box-shadow: 1px 8px 9px 1px rgb(157, 155, 155);
+    text-transform: uppercase;
+}
+.payment_history__item button:hover{
+    transform: translateY(3px);
+     box-shadow: 1px 2px 0px 0px rgb(157, 155, 155);
+     transition: all 0.2s ease-in;
+}
