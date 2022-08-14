@@ -144,7 +144,7 @@ const Register = () => {
           </div>
           <div className='form-group'>
             <label className='mb-2 mt-1' htmlFor='lastname'>Wallet</label>
-            <span className='m-3 text-primary'>* Please input your intelwave wallet *</span>
+            <span className='m-3 text-primary'>* Please input your intelwave address *</span>
             <input className='form-control' id='lastname' name='lastname' placeholder='Paste your intelwave address' onChange={(e) => setWallet(e.target.value)} value={wallet}/>
           </div>
           <div className='form-group'>
