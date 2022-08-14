@@ -144,8 +144,8 @@ const Register = () => {
           </div>
           <div className='form-group'>
             <label className='mb-2 mt-1' htmlFor='lastname'>Wallet</label>
-            <span className='m-3 text-danger'>* Please we accept only Trust Wallet and Meta Mask *</span>
-            <input className='form-control' id='lastname' name='lastname' placeholder='Paste your Trust wallet or Meta-mask address' onChange={(e) => setWallet(e.target.value)} value={wallet}/>
+            <span className='m-3 text-primary'>* Please input your intelwave wallet *</span>
+            <input className='form-control' id='lastname' name='lastname' placeholder='Paste your intelwave wallet' onChange={(e) => setWallet(e.target.value)} value={wallet}/>
           </div>
           <div className='form-group'>
             <label className='mb-2 mt-1' htmlFor='password'>Password</label>
