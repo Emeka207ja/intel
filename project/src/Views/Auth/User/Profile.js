@@ -117,8 +117,9 @@ const Profile = () => {
                           <p>TM6RRFfBMRxhQiM6HXLemoqA8akg7Cbu14</p>
                       </li>
                       <li>
-                         after payment, submit your proof of payment in the form below
+                          after payment, submit your proof of payment in the form below
                       </li>
+                      <span className='text-danger'>* Please do not submit proof of payment, if you paid through paystack</span>
                   </ol>
                   <button className='btn btn-primary' onClick={navigateToPaystackPage}>PAY WITH CARD</button>
               </div>

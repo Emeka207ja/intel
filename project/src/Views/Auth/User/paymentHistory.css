@@ -14,10 +14,24 @@
     display: grid;
     align-items: center;
 }
-.payment_history__loading{
+.payment_history__loading, .paystack_update__loading{
     background-color: rgb(178, 199, 192);
     padding: 1rem;
     color: rgb(86, 86, 121);
+    text-align: center;
+    text-transform: uppercase;
+}
+.payment_history__error{
+    background-color: rgb(220, 43, 82);
+    padding: 1rem;
+    color: rgb(86, 86, 121);
+    text-align: center;
+    text-transform: uppercase;
+}
+.paystack_update__success{
+    background-color: rgb(69, 105, 176);
+    padding: 1rem;
+    color: rgb(236, 236, 239);
     text-align: center;
     text-transform: uppercase;
 }

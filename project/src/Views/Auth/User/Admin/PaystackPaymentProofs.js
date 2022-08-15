@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 import formatDistance from "date-fns/formatDistance"
 import "../paymentHistory.css"
@@ -9,7 +10,9 @@ const PaystackPaymentProofs = () => {
     
     const [loading,setLoading] = useState(false)
     const [paymentInfo,setPaymentInfo] = useState()
-    const [error,setError] = useState()
+    const [error, setError] = useState()
+    
+    const navigate = useNavigate()
 
     const fetchPaystackPaymentsHandler = async () => {
         try {
@@ -31,14 +34,17 @@ const PaystackPaymentProofs = () => {
     }
     useEffect(() => {
         fetchPaystackPaymentsHandler()
-    },[])
+    }, [])
+    const navigateToPaystackPaymentUpdate = (id) => {
+        navigate(`/updatepaystack/${id}`)
+    }
   return (
       <div>
           <div className='payment_history__container'>
               {
-                  loading ? <p>Loading</p> : paymentInfo?.map((el, idx) => {
+                  loading ? <p className='payment_history__loading'>Loading</p> : paymentInfo?.map((el, idx) => {
                       return (
-                          <div className='payment_history__item'>
+                          <div className='payment_history__item' key={idx}>
                               <p> Client Email : {el.user.email }</p>
                               <p> Amount Paid : {el.Amount }</p>
                               <p> Payment Channel : {el.paymentMethod }</p>
@@ -53,7 +59,7 @@ const PaystackPaymentProofs = () => {
                               )
                               }</p>
                               <div>
-                                  <button className='btn btn-primary'disabled>Update</button>
+                                  <button className='btn btn-primary' onClick={()=>navigateToPaystackPaymentUpdate(el.payment_reference)}>Update</button>
                                   <button className="btn btn-danger" disabled>Delete</button>
                               </div>
                           </div>

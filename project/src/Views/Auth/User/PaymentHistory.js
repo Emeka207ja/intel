@@ -46,7 +46,7 @@ const PaymentHistory = () => {
                           <p>Amount Paid: &#8358; {el.Amount} </p>
                           <p>Payment Status: {el.payment_status} </p>
                           <p>Approval Status: {el.status} </p>
-                          <p> Wallet Status: {el.adminApproved ? "YES" : "Intel not yet sent to wallet yet,will be proccessed shortly"} </p>
+                          <p> Wallet Status: {el.adminApproved ? "YES! Intel Sent" : "Intel not yet sent to wallet yet,will be proccessed shortly"} </p>
                           <p> Ticket Created : {
                               formatDistance(
                                   new Date(el.createdAt),

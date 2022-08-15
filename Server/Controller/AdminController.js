@@ -157,8 +157,26 @@ const deletePayment = asyncHandler(async (req, res) => {
    }
 })
 
-const fetchAllPaystackPayments = asyncHandler(async (req, res) => { })
+const updatePaystackPayment = asyncHandler(async (req, res) => {
+    const { status, adminApproved } = req.body
+    try {
+        const payment = await Paystack.findOne({
+            payment_reference : req.params.id
+        })
+        if (!payment) {
+            res.status(404)
+            throw new Error("resource not found")
+        }
+        payment.status = status
+        payment.adminApproved = adminApproved
+        await payment.save()
+        res.status(201).json({message:"payment updated"})
+    } catch (error) {
+        res.status(500)
+        throw new Error(error.message)
+    }
+ })
 
 
 
-export{adminPaymentHandler,fetchUsersHandler,fetchSingleUser,updateUser,updatePayment,fetchSinglePayment,deleteUser,deletePayment}
+export{adminPaymentHandler,fetchUsersHandler,fetchSingleUser,updateUser,updatePayment,fetchSinglePayment,deleteUser,deletePayment,updatePaystackPayment}

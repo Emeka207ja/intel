@@ -6,6 +6,7 @@ import Login from './Views/Auth/Login';
 import Register from './Views/Auth/Register';
 import PaymentProofs from './Views/Auth/User/Admin/PaymentProofs';
 import PaystackPaymentProofs from './Views/Auth/User/Admin/PaystackPaymentProofs';
+import PaystackPaymentUpdate from './Views/Auth/User/Admin/PaystackPaymentUpdate';
 import UpdatePayment from './Views/Auth/User/Admin/UpdatePayment';
 import UpdateUser from './Views/Auth/User/Admin/UpdateUser';
 import UsersPage from './Views/Auth/User/Admin/UsersPage';
@@ -44,6 +45,7 @@ function App() {
         <Route path='/live' exact element={<LiveChart/> }/>
         <Route path='/paymenthistory/:id' exact element={<PaymentHistory/> }/>
         <Route path='/paystackhistory' exact element={<PaystackPaymentProofs/> }/>
+        <Route path='/updatepaystack/:id' exact element={<PaystackPaymentUpdate/> }/>
       </Routes>
     </div>
   );
