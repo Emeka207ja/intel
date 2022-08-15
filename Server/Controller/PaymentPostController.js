@@ -59,7 +59,7 @@ const sendPaystackPayment = asyncHandler(async(req,res) => {
 // fetch the payment status of a client for admin
 const fetchClientsPayments = asyncHandler(async (req, res) => {
     try {
-        const user = await Paystack.find({}).populate({ path: "user", model: User }) 
+        const user = await Paystack.find({}).populate({ path: "user", model: User }).sort({updatedAt:-1}) 
          if (!user) {
             res.status(404)
             throw new Error("not found")
