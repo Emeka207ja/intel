@@ -11,7 +11,9 @@ const PaystackPaymentProofs = () => {
     const [loading,setLoading] = useState(false)
     const [paymentInfo,setPaymentInfo] = useState()
     const [error, setError] = useState()
-    
+    const [deleting,setDeleting] = useState(false)
+    const [deleteFeedback,setDeleteFeedback] = useState()
+    const [deleteFailed,setDeleteFailed] = useState()
     const navigate = useNavigate()
 
     const fetchPaystackPaymentsHandler = async () => {
@@ -28,21 +30,48 @@ const PaystackPaymentProofs = () => {
             setLoading(false)
             console.log(data)
         } catch (error) {
+            setError(error.response.data.message)
             setLoading(false)
             console.log(error.response.data.message)
         }
     }
     useEffect(() => {
         fetchPaystackPaymentsHandler()
-    }, [])
+    }, [deleting])
+
     const navigateToPaystackPaymentUpdate = (id) => {
         navigate(`/updatepaystack/${id}`)
     }
+    const deletePaystackPayment = async (id) => {
+        try {
+            setDeleting(true)
+            if (window.confirm("are you sure?") === true) {
+                const config = {
+                    headers: {
+                        "Content-type": "application/json",
+                        Authorization: `Bearer ${userInfo?.token}`
+                    }
+                }
+                const { data } = await axios.delete(`api/admin/paystack/${id}`, config)
+                setDeleteFeedback(data.message)
+                setDeleting(false)
+                console.log(data)
+            }
+        } catch (error) {
+            console.log(error.response.data.message)
+            setDeleteFailed(error.response.data.message)
+            setDeleting(false)
+       }
+    }
   return (
       <div>
+          {deleteFeedback && <p className='paystack_update__success'>{deleteFeedback}</p>}
           <div className='payment_history__container'>
+              {/* {deleting && <p>deleting</p>} */}
+              
+              {deleteFailed && <p>{ deleteFailed}</p>}
               {
-                  loading ? <p className='payment_history__loading'>Loading</p> : paymentInfo?.map((el, idx) => {
+                  loading ? <p className='payment_history__loading'>Loading</p> : error ? <p>{ error}</p> :paymentInfo?.map((el, idx) => {
                       return (
                           <div className='payment_history__item' key={idx}>
                               <p> Client Email : {el.user.email }</p>
@@ -60,7 +89,7 @@ const PaystackPaymentProofs = () => {
                               }</p>
                               <div>
                                   <button className='btn btn-primary' onClick={()=>navigateToPaystackPaymentUpdate(el.payment_reference)}>Update</button>
-                                  <button className="btn btn-danger" disabled>Delete</button>
+                                  <button className="btn btn-danger" onClick={()=>deletePaystackPayment(el.payment_reference)} >Delete</button>
                               </div>
                           </div>
                       )

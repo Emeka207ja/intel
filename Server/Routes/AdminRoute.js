@@ -1,5 +1,5 @@
 import express from 'express'
-import { adminPaymentHandler, fetchUsersHandler,fetchSingleUser, updateUser, updatePayment, fetchSinglePayment, deleteUser, deletePayment, updatePaystackPayment } from '../Controller/AdminController.js'
+import { adminPaymentHandler, fetchUsersHandler,fetchSingleUser, updateUser, updatePayment, fetchSinglePayment, deleteUser, deletePayment, updatePaystackPayment, deletePaystackPayment } from '../Controller/AdminController.js'
 import {protect} from '../Util/protected.js'
 const router = express.Router()
 
@@ -7,8 +7,10 @@ const router = express.Router()
 router.route("/payment").get(protect,adminPaymentHandler)
 router.route("/payment/:id").put(protect,updatePayment)
 router.route("/payment/:id").get(protect,fetchSinglePayment)
-router.route("/payment/:id").delete(protect,deletePayment)
+router.route("/payment/:id").delete(protect, deletePayment)
+
 router.route("/paystack/:id").put(protect,updatePaystackPayment)
+router.route("/paystack/:id").delete(protect,deletePaystackPayment)
 
 router.route("/users").get(protect, fetchUsersHandler)
 router.route("/user/:id").get(protect,fetchSingleUser)
