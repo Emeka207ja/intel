@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useSelector,useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import PaystackPop from '@paystack/inline-js'
 import { coinUpdateHandler, postPaystackPaymentAction } from '../../../Actions/PaymentAction'
@@ -9,9 +9,10 @@ const PaystackPage = () => {
     const {id}= useParams()
     const { loading, error, userInfo } = useSelector(state => state.login)
     const {error:payError,loading:payLoading,paymentInfo} = useSelector(state=>state.paystackPayment)
-    const {error:coinErr,coinVal} = useSelector(state=>state.coinUpdate)
+    const { error: coinErr, coinVal } = useSelector(state => state.coinUpdate)
+    
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
     const [paystackKey, setPaystackKey] = useState()
     const [success,setSuccess]= useState()
     const [valid,setValid]= useState(true)
@@ -106,7 +107,7 @@ const PaystackPage = () => {
                 let message = ` payment complete! reference Id ${transaction.reference}`
                
                 alert(message)
-               
+               navigate(`/paymenthistory/${id}`)
             },
             onCancel() {
                 alert("you have cancelled a payment")

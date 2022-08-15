@@ -37,7 +37,7 @@ const PaymentHistory = () => {
   return (
       <div>
           <div className='payment_history__container'>
-              {loading?<p  className='payment_history__loading'>Loading</p>: paymentData?.map((el, idx) => {
+              {loading?<p  className='payment_history__loading'>Loading</p >:paymentData?.length===0?<p  className='payment_history__loading'>You have not made any paystack payments yet</p>: paymentData?.map((el, idx) => {
                   return (
                       <div className='payment_history__items'>
                           <h5><span> Receipt #{idx+1 }</span></h5>
