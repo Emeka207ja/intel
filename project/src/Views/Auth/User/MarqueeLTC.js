@@ -27,7 +27,7 @@ const MarqueeLTC = () => {
   return (
     <div>
       {
-        LTC && <span className='text-dark'>{LTC.product_id} :<span className={LTC.side==="buy"?"text-primary":"text-danger"}>{LTC.price }</span></span>
+        LTC && <span className='text-dark px-3'>{LTC.product_id} : <span className={LTC.side==="buy"?"text-primary":"text-danger"}>{LTC.price }</span></span>
      }
     </div>
   )

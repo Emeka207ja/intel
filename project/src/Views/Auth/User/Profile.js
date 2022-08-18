@@ -1,12 +1,14 @@
 import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Marquee from "react-fast-marquee";
 import axios from 'axios'
 import './profile.css'
 import Marques from './Marques'
 import MarqueEth from './MarqueEth'
 import MarqueeUsdt from './MarqueeUsdt'
 import MarqueeLTC from './MarqueeLTC'
+import MarqueMatic from './MarqueMatic';
 
 const Profile = () => {
     const [image, setImage] = useState()
@@ -114,21 +116,14 @@ const Profile = () => {
           
           <div className="payment_section card text-center ">
              
-              <div className='marquee_container'>
-                   <marquee>
-                       <MarqueeLTC />
-                  </marquee>
-                  <marquee>
-                    <Marques />
-                  </marquee>
-                  <marquee>
-                       <MarqueEth />
-                  </marquee>
-                  <marquee>
-                       <MarqueeUsdt />
-                  </marquee>
-                 
-              </div>
+             
+              <Marquee className='react_marquee' speed={70} >
+                  <MarqueeLTC />
+                  <Marques />
+                  <MarqueEth />
+                   <MarqueeUsdt />
+                   <MarqueMatic />
+              </Marquee>
               {/* <marquee></marquee> */}
                     <div className="card-header">
                        <h5>Intel Purchase Guideline</h5>

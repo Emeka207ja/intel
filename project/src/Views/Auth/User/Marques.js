@@ -30,7 +30,7 @@ const Marques = () => {
   return (
       <div>
           {
-              BTC && <span className='text-dark'>{BTC.product_id} :<span className={BTC.side==="buy"?"text-primary":"text-danger"}>{BTC.price }</span></span>
+              BTC && <span className='text-dark px-3'>{BTC.product_id} : <span className={BTC.side==="buy"?"text-primary":"text-danger"}>{BTC.price }</span></span>
           }
       {/* <h3>Marques</h3> */}
     </div>

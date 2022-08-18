@@ -1,5 +1,6 @@
 import react, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Marquee from "react-fast-marquee";
 import MarqueeLTC from './Auth/User/MarqueeLTC'
 import MarqueEth from './Auth/User/MarqueEth'
 import MarqueeUsdt from './Auth/User/MarqueeUsdt'
@@ -17,24 +18,13 @@ const Demo = () => {
 
     return (
         <div>
-             <div className='marquee_container'>
-                   <marquee>
-                       <MarqueeLTC />
-                  </marquee>
-                  <marquee>
-                    <Marques/>
-                  </marquee>
-                  <marquee>
-                       <MarqueEth />
-                  </marquee>
-                  <marquee>
-                       <MarqueeUsdt />
-                  </marquee>
-                  <marquee>
-                       <MarqueMatic />
-                  </marquee>
-                 
-              </div>
+             <Marquee className='react_marquee' speed={70} >
+                  <MarqueeLTC />
+                  <Marques />
+                  <MarqueEth />
+                   <MarqueeUsdt />
+                   <MarqueMatic/>
+              </Marquee>
         <div className='home__container'>
             <section className='hero__head'>
                 <div className=''>

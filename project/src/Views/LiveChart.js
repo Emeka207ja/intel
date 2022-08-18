@@ -2,7 +2,7 @@ import React,{useState,useEffect,useRef} from 'react'
 import axios from "axios"
 import Chart from './Chart'
 import "./chart.css"
-import TradingView from './TradingView'
+
 const LiveChart = () => {
     const [pair, setPair] = useState("CVC-USD")
     const [currency, setCurrency] = useState()
@@ -23,13 +23,14 @@ const LiveChart = () => {
 
         const fetchCoins = async () => {
             try {
-               let result = []
+              
                const { data } = await axios.get("https://api.pro.coinbase.com/products")
             //   result = data
                let filtered = data.filter(pair => {
                    if (pair.quote_currency === "USD") {
                        return pair
                    }
+                   return 0
                })
                 filtered = filtered.sort((a, b) => {
                     if (a.base_currency < b.base_currency) {
@@ -53,7 +54,7 @@ const LiveChart = () => {
         /////// function for fetching historical data for chart ////////
          const historicalData = async () => {
              try {
-                let histArr =[]
+               
                  const { data } = await axios.get(`https://api.pro.coinbase.com/products/${pair}/candles?granularity=${time}`)
                  setTVpair(data.id)
                  console.log(data.id)
@@ -183,9 +184,7 @@ const LiveChart = () => {
         setPair(e.target.value)
          
     }
-    // if (priceHistory) {
-    //     console.log(priceHistory)
-    // }
+    
   return (
     <div className='chart_container'>
           <h2>Live market</h2>
@@ -214,7 +213,7 @@ const LiveChart = () => {
          
           {loading ? <h3 className='text-primary'>Select coin</h3> : data && <h3  className='text-dark'>{data.product_id} :<span className={data.side==="buy"?"text-primary":"text-danger"}> ${data.price}</span>   </h3>}
           <Chart price={price} datas={priceHistory} Time={ date} />
-          {/* <TradingView TPair={TVpair } /> */}
+         
          
     </div>
   )

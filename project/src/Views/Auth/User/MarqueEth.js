@@ -28,7 +28,7 @@ const MarqueEth = () => {
   return (
     <div>
       {
-              ETH && <span className='text-dark'>{ETH.product_id} :<span className={ETH.side==="buy"?"text-primary":"text-danger"}>{ETH.price }</span></span>
+              ETH && <span className='text-dark px-3'>{ETH.product_id} : <span className={ETH.side==="buy"?"text-primary":"text-danger"}>{ETH.price }</span></span>
           }
     </div>
   )

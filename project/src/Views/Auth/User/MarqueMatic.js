@@ -27,7 +27,7 @@ const MarqueMatic = () => {
   return (
     <div>
        {
-              MATIC && <span className='text-dark'>{MATIC.product_id} :<span className={MATIC.side==="buy"?"text-primary":"text-danger"}>{MATIC.price }</span></span>
+              MATIC && <span className='text-dark px-3'>{MATIC.product_id} : <span className={MATIC.side==="buy"?"text-primary":"text-danger"}>{MATIC.price }</span></span>
           }
     </div>
   )

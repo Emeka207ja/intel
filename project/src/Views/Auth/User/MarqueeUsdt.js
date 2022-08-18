@@ -27,7 +27,7 @@ const MarqueeUsdt = () => {
   return (
     <div>
        {
-        USDT && <span className='text-dark'>{USDT.product_id} :<span className={USDT.side==="buy"?"text-primary":"text-danger"}>{USDT.price }</span></span>
+        USDT && <span className='text-dark px-3'>{USDT.product_id} : <span className={USDT.side==="buy"?"text-primary":"text-danger"}>{USDT.price }</span></span>
        }
     </div>
   )
