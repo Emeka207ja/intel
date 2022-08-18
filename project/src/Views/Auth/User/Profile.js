@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './profile.css'
+import Marques from './Marques'
+import MarqueEth from './MarqueEth'
+import MarqueeUsdt from './MarqueeUsdt'
+import MarqueeLTC from './MarqueeLTC'
 
 const Profile = () => {
     const [image, setImage] = useState()
@@ -28,7 +32,7 @@ const Profile = () => {
            }
             const { data } = await axios.get(`/api/user/coin/${userInfo._id}`, config)
             setCoin(data)
-           console.log(data)
+        //    console.log(data)
        } catch (error) {
         console.log(error.response)
        }
@@ -95,8 +99,10 @@ const Profile = () => {
       <div className='profile__container'>
          
              <div className=" profile" >
-                   <div className='profile__img'> <img className="card-img-top profile__img" src={userInfo&&userInfo.image} alt="Card image cap"/></div>
-                    <div className="card-body profile__body">
+              <div className='profile__img'> <img className="card-img-top profile__img" src={userInfo && userInfo.image} alt="Card image cap" /></div>
+             
+              <div className="card-body profile__body">
+                  
                   <h5 className="card-title">welcome { userInfo&& userInfo.email}</h5>
                         {/* <p className="card-text">portfolio : 0 intel wave</p> */}
                         <p className="card-text">user id : { userInfo&& userInfo._id}</p>
@@ -106,7 +112,24 @@ const Profile = () => {
                     </div>
               </div>
           
-                <div className="payment_section card text-center ">
+          <div className="payment_section card text-center ">
+             
+              <div className='marquee_container'>
+                   <marquee>
+                       <MarqueeLTC />
+                  </marquee>
+                  <marquee>
+                    <Marques />
+                  </marquee>
+                  <marquee>
+                       <MarqueEth />
+                  </marquee>
+                  <marquee>
+                       <MarqueeUsdt />
+                  </marquee>
+                 
+              </div>
+              {/* <marquee></marquee> */}
                     <div className="card-header">
                        <h5>Intel Purchase Guideline</h5>
               </div>
@@ -148,7 +171,7 @@ const Profile = () => {
                   <div>
                       
                   </div>
-                    <buton className= "btn btn-primary mt-3" onClick= {navigateToPaymentHistory}> VIEW PAYMENT HISTORY</buton>
+                    <button className= "btn btn-primary mt-3" onClick= {navigateToPaymentHistory}> VIEW PAYMENT HISTORY</button>
                   </div>
               <div className="card-footer text-muted">
                   <h3>Contact Admin</h3>

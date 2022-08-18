@@ -12,6 +12,12 @@
 .profile__container h5{
     font-size: 1.2rem;
 }
+.marquee_container{
+    display: flex;
+    /* justify-content: space-around; */
+    font-size: 17px;
+    background-color: rgb(244, 244, 247);
+}
 .profile__container p{
     font-size: 1.2rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

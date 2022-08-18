@@ -74,7 +74,7 @@ const LiveChart = () => {
                  })
                  dates.reverse()
                  setDate(dates)
-                  console.log(dates)
+                 
                ///candles?granularity=86400
             } catch (error) {
                 console.log(error)
@@ -122,7 +122,7 @@ const LiveChart = () => {
                  
         }
     }, [pair, time])
-    console.log("TP",TVpair)
+   
 
     // useEffect(() => {
     //     if (!first.current) {
@@ -201,7 +201,7 @@ const LiveChart = () => {
               </select>
               <div>
                   
-                    <select value={time} onChange={(e)=>setTime(e.target.value)}>
+                    <select value={time} onChange={(e)=>setTime(e.target.value)} className='form-select'>
                         <option value="60">1M</option>
                         <option value="300">5M</option>
                         <option value="900">15M</option>
@@ -212,7 +212,7 @@ const LiveChart = () => {
               </div>
               </div>
          
-          {loading ? <h3 className='text-primary'>Select coin</h3> : data && <h3  className='text-primary'>{data.product_id} : ${data.price}   </h3>}
+          {loading ? <h3 className='text-primary'>Select coin</h3> : data && <h3  className='text-dark'>{data.product_id} :<span className={data.side==="buy"?"text-primary":"text-danger"}> ${data.price}</span>   </h3>}
           <Chart price={price} datas={priceHistory} Time={ date} />
           {/* <TradingView TPair={TVpair } /> */}
          

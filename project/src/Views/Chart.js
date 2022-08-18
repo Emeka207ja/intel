@@ -26,7 +26,7 @@ const Chart = (props) => {
   
   
   const { datas,price,Time } = props
-  console.log(price)
+  
   
   
   const data= {

@@ -1,5 +1,10 @@
 import react, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import MarqueeLTC from './Auth/User/MarqueeLTC'
+import MarqueEth from './Auth/User/MarqueEth'
+import MarqueeUsdt from './Auth/User/MarqueeUsdt'
+import MarqueMatic from './Auth/User/MarqueMatic'
+import Marques from './Auth/User/Marques'
 import './demo.css'
 const Demo = () => {
     const [show1,setShow1] = useState(false)
@@ -11,6 +16,25 @@ const Demo = () => {
     const [roadMap, setRoadMap] = useState(false)
 
     return (
+        <div>
+             <div className='marquee_container'>
+                   <marquee>
+                       <MarqueeLTC />
+                  </marquee>
+                  <marquee>
+                    <Marques/>
+                  </marquee>
+                  <marquee>
+                       <MarqueEth />
+                  </marquee>
+                  <marquee>
+                       <MarqueeUsdt />
+                  </marquee>
+                  <marquee>
+                       <MarqueMatic />
+                  </marquee>
+                 
+              </div>
         <div className='home__container'>
             <section className='hero__head'>
                 <div className=''>
@@ -166,7 +190,8 @@ const Demo = () => {
                 </div>
                 <p className='text-white text-center mt-4'>&copy; INTEL WAVE </p>
             </section>
-         </div>
+            </div>
+        </div>
      )
 }
  
