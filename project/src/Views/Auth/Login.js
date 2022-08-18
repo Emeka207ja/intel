@@ -21,7 +21,7 @@ const Login = () => {
     }
   },[userInfo])
   return (
-    <div className='container-fluid py-4'>
+    <div className='container-fluid login_container'>
       <div className=' container'>
         {loading&& <p className='login__loading'>logging in...</p>}
         {error && <p className="login__error">{error }</p>}

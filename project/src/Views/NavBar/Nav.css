@@ -1,0 +1,9 @@
+.nav_container{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1000;
+    background-color:rgba(131, 127, 127, 0.4);
+    opacity: 7;
+    /* max-height: 20vh; */
+}

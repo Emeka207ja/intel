@@ -18,13 +18,13 @@ const Demo = () => {
 
     return (
         <div>
-             <Marquee className='react_marquee' speed={70} >
+             {/* <Marquee className='react_marquee' speed={50} >
                   <MarqueeLTC />
                   <Marques />
                   <MarqueEth />
                    <MarqueeUsdt />
                    <MarqueMatic/>
-              </Marquee>
+              </Marquee> */}
         <div className='home__container'>
             <section className='hero__head'>
                 <div className=''>

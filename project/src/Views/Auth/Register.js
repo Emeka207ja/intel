@@ -126,7 +126,7 @@ const Register = () => {
     setWallet("")
   }
   return (
-    <div className='container-fluid py-4'>
+    <div className='container-fluid register_container'>
       <div className='container'>
         <form onSubmit={handleSignUp}>
           <h3>PLEASE FILL THIS FORM</h3>

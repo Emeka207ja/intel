@@ -117,7 +117,7 @@ const Profile = () => {
           <div className="payment_section card text-center ">
              
              
-              <Marquee className='react_marquee' speed={70} >
+              <Marquee className='react_marquee' speed={50} >
                   <MarqueeLTC />
                   <Marques />
                   <MarqueEth />

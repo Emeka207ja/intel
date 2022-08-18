@@ -13,9 +13,11 @@
     font-size: 1.2rem;
 }
 .react_marquee{
-    padding: 0.9rem;
+    
     font-size: 18px;
-    background-color: rgb(152, 152, 158);
+    padding: 0.7rem;
+    /* top: 2vh; */
+    background-color: rgb(152, 152, 158, 0.4);
 }
 .profile__container p{
     font-size: 1.2rem;

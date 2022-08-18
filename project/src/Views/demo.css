@@ -27,6 +27,14 @@
     padding: 0.4rem;
     color: rgb(139, 136, 136);
 }
+@media only screen and (max-width:700px){
+    .hero__head{
+        grid-column: full-start/full-end ;
+    }
+    .hero__intro{
+         grid-column: full-start/full-end ;
+    }
+}
 .white__paper{
     /* background-color: aqua; */
     grid-column: center-start/center-end;
@@ -93,9 +101,10 @@
     font-size: 1rem;
 }
 .footer{
-    background-color: rgb(163, 161, 161);
+    background-color: rgba(111, 107, 107, 0.4);
      grid-column: full-start/full-end;
       padding: 4rem;
+      border-radius: 30px;
 }
 .showMore{
     color: rgb(129, 193, 193);
