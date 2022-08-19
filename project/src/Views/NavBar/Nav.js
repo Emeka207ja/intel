@@ -28,7 +28,7 @@ const NavMenu = () => {
         navigate("/paystackhistory")
     }
     return (
-        <div className='nav_container'>
+        <div className=''>
             <Marquee className='react_marquee' speed={50} >
                   <MarqueeLTC />
                   <Marques />
@@ -36,7 +36,7 @@ const NavMenu = () => {
                    <MarqueeUsdt />
                    <MarqueMatic/>
               </Marquee>
-            <Navbar  variant='dark' sticky='top' className='d-flex justify-content-between px-3 active navbar-fixed-top' expand='lg '>
+            <Navbar  variant='dark' sticky='top' bg="dark" className='d-flex justify-content-between px-3 active navbar-fixed-top' expand='lg '>
                 <Navbar.Brand>
                     <img src={intel} height='20px' width={'20px'} />
                     <span className='px-2'>INTEL WAVE</span>
@@ -46,13 +46,13 @@ const NavMenu = () => {
                     <Nav fill className='d-flex justify-content-lg-start px-lg-5 active mr-auto'>
                         {/* <Link  href='/'>Home</Link> */}
                        {/* {!userInfo?.token&& <Nav.Link as ={Link} to="/home" className='px-lg-5'>Home</Nav.Link >} */}
-                        <Nav.Link as ={Link} to="/home" className='text-secondary h-75 px-lg-5 '>Home</Nav.Link >
-                        <Nav.Link as ={Link} to="/live" className='px-lg-5 text-secondary h-75'>Live Market</Nav.Link >
-                        {userInfo?.token&&userInfo?.isAdmin &&<Nav.Link as ={Link} to="/users" className='text-secondary h-75 px-lg-5'>Users</Nav.Link >}
+                        <Nav.Link as ={Link} to="/home" className=' px-lg-5 '>Home</Nav.Link >
+                        <Nav.Link as ={Link} to="/live" className='px-lg-5 '>Live Market</Nav.Link >
+                        {userInfo?.token&&userInfo?.isAdmin &&<Nav.Link as ={Link} to="/users" className=' px-lg-5'>Users</Nav.Link >}
                        {userInfo?.token&&userInfo?.isAdmin && <Nav.Link as ={Link} to="/proofs" className='px-lg-5'>Payment proofs</Nav.Link >}
                         {/* <Nav.Link as ={Link} to="/updatepayment" className='px-lg-5'></Nav.Link > */}
                         {/* <Nav.Link as ={Link} to="/about"  className='px-lg-5'>About</Nav.Link> */}
-                        {userInfo?.token&&<Nav.Link as ={Link} to="/profile"  className='px-lg-5 text-secondary h-75'>Dashboard</Nav.Link>}
+                        {userInfo?.token&&<Nav.Link as ={Link} to="/profile"  className='px-lg-5'>Dashboard</Nav.Link>}
                         <NavDropdown title={userInfo?.token? userInfo.firstname:"gain access"}>
                             {!userInfo?.token&&<NavDropdown.Item as ={Link} to="/register">Register</NavDropdown.Item>}
                             {!userInfo?.token&&<NavDropdown.Item as ={Link} to="/login">Login</NavDropdown.Item>}
