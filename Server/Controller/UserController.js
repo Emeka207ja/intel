@@ -181,6 +181,14 @@ const fetchPaystackPublicKey = asyncHandler(async (req, res) => {
         throw new Error(error.message)
     }
 })
+const fetchPaystackPublicKeyPublic = asyncHandler(async (req, res) => {
+    try {
+        res.status(200).json(process.env.PAYSTACK_PUBLIC_KEY)
+    } catch (error) {
+        res.status(404)
+        throw new Error(error.message)
+    }
+})
 
 const updateCoinTotal = asyncHandler(async (req, res) => {
     const { coin } = req.body
@@ -212,4 +220,4 @@ const fetchCoin = asyncHandler(async (req, res) => {
         throw new Error(error.message)
     }
 })
-export{signUpHandler,signInHandler,fetchUserProfile,updateUserProfile,fetchPaystackPublicKey,forgotPassword,resetPasswordContoller,updateCoinTotal,fetchCoin}
+export{signUpHandler,signInHandler,fetchUserProfile,updateUserProfile,fetchPaystackPublicKey,forgotPassword,resetPasswordContoller,updateCoinTotal,fetchCoin,fetchPaystackPublicKeyPublic}

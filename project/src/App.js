@@ -20,6 +20,7 @@ import Home from './Views/Home';
 import LiveChart from './Views/LiveChart';
 import ResetPassword from './Views/ResetPassword';
 import Welcome from './Views/WelcomePage';
+import UsdtSaleScreen from './Views/UsdtSaleScreen';
 
 function App() {
   // "proxy": "http://127.0.0.1:5000",
@@ -46,6 +47,7 @@ function App() {
         <Route path='/paymenthistory/:id' exact element={<PaymentHistory/> }/>
         <Route path='/paystackhistory' exact element={<PaystackPaymentProofs/> }/>
         <Route path='/updatepaystack/:id' exact element={<PaystackPaymentUpdate/> }/>
+        <Route path='/buyusdt' exact element={<UsdtSaleScreen/> }/>
       </Routes>
     </div>
   );
