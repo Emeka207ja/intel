@@ -64,20 +64,34 @@ const UsdtSaleScreen = () => {
         <Container className="py-3">
             <Row>
                 <Col md={4}>
-                    <h2 className="text-primary">Buy USDT at the best rate!</h2>
-                    <h5>We offer the best rate in the market</h5>
+                    <h3 className="text-primary">Buy USDT at the best rate!</h3>
+                    <h5>We offer the best <span className="text-danger">RATE</span> in the market</h5>
                     <Card className="px-3">
                         <h3 className="text-center">Enjoy our premium prices </h3>
-                        <Row>
-                            <Col>100 USDT - 400USDT</Col>
-                            <Col>&#8358; 630 per USDT</Col>
-                        </Row>
-                        <Row>
-                            <Col>500 USDT - 1000 USDT</Col>
-                            <Col>&#8358; 610 per USDT</Col>
-                        </Row>
-                        <h5>minimiun USDT purchaseable = 100 USDT</h5>
-                        <h5>maximiun USDT purchaseable = 1000 USDT</h5>
+                        <ListGroup>
+                            <ListGroupItem>
+                                <Row>
+                                    <Col>100 USDT - 400USDT</Col>
+                                    <Col>&#8358; 630 per USDT</Col>
+                               </Row>
+                            </ListGroupItem>
+                       </ListGroup>
+                        <ListGroup>
+                            <ListGroupItem>
+                                <Row>
+                                    <Col>500 USDT - 1000 USDT</Col>
+                                    <Col>&#8358; 610 per USDT</Col>
+                                </Row>
+                            </ListGroupItem>
+                       </ListGroup>
+                        <ListGroup>
+                            <ListGroupItem>
+                                <h6>minimium USDT purchaseable = 100 USDT</h6>
+                                <h6>maximium USDT purchaseable = 1000 USDT</h6>
+                            </ListGroupItem>
+                       </ListGroup>
+                       
+                       
                     </Card>
                 </Col>
                 <Col md={8}>
