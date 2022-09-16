@@ -47,12 +47,12 @@ const userModel = mongoose.Schema({
     },
     referredBy: {
         type: String,
-        required: true,
+        // required: true,
         default:"intelwaveTeam"
     },
     wallet: {
         type: String,
-        required: true,
+        // required: true,
         default:"intelwaveWallet"
     }
    

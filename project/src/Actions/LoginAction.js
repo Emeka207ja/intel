@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FETCH_PROFILE_FAILED, FETCH_PROFILE_REQUEST, FETCH_PROFILE_SUCCESS, LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, UPDATE_PROFILE_FAILED, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS } from '../ActionCreators/LoginActionCreator'
+import { FETCH_PROFILE_FAILED, FETCH_PROFILE_REQUEST, FETCH_PROFILE_SUCCESS, LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, UPDATE_PROFILE_FAILED, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS,INVESTOR_SIGNUP_REQUEST,INVESTOR_SIGNUP_SUCCESS,INVESTOR_SIGNUP_FAILED } from '../ActionCreators/LoginActionCreator'
 
 export const loginAction = (email, password) => async(dispatch, getState) => {
     try {
@@ -9,6 +9,19 @@ export const loginAction = (email, password) => async(dispatch, getState) => {
         localStorage.setItem("loggedIn",JSON.stringify(data))
     } catch (error) {
         dispatch({ type: LOGIN_FAILED, payload: error.response.data.message })
+        if(error){
+            console.log("error",error)
+        }
+    }
+}
+export const investSignupAction = (name,email, password,wallet) => async(dispatch, getState) => {
+    try {
+        dispatch({ type: INVESTOR_SIGNUP_REQUEST })
+        const { data } = await axios.post("/api/investment/invest",{name,email,password,wallet})
+        dispatch({ type: INVESTOR_SIGNUP_SUCCESS, payload: data })
+        localStorage.setItem("investorSignup",JSON.stringify(data))
+    } catch (error) {
+        dispatch({ type: INVESTOR_SIGNUP_FAILED, payload: error.response.data.message })
         if(error){
             console.log("error",error)
         }

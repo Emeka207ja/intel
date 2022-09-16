@@ -2,7 +2,7 @@ import {createStore,combineReducers,applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { fetchProfileReducer, loginReducer, updateProfileReducer } from './Reducers/LoginReducer'
+import { fetchProfileReducer, loginReducer, updateProfileReducer,investorSignupReducer } from './Reducers/LoginReducer'
 import { deletePaymentReducer, deleteUserReducer, fetchAllProofReducer, fetchSinglePaymentProofReducer, fetchUsersReducer } from './Reducers/AdminReducer'
 import UsersPage from './Views/Auth/User/Admin/UsersPage'
 import { coinUpdateReducer, paystackPaymentReducer } from './Reducers/PaymentReducer'
@@ -17,7 +17,8 @@ const reducer = combineReducers({
     fetchProfile: fetchProfileReducer,
     updateProfile: updateProfileReducer,
     paystackPayment: paystackPaymentReducer,
-    coinUpdate:coinUpdateReducer
+    coinUpdate: coinUpdateReducer,
+    investorSignup:investorSignupReducer
 })
 
 

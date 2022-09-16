@@ -2,6 +2,7 @@ import { json } from 'express'
 import asyncHandler from 'express-async-handler'
 import jwt from "jsonwebtoken"
 import User from '../Model/UserModel.js'
+import investor from '../Model/UserInvestmentModel.js'
 import generateToken from '../Util/generateToken.js'
 import sendEmail from '../Util/SendEmail.js'
 
@@ -29,12 +30,15 @@ const signUpHandler = asyncHandler(async (req, res) => {
         email,
         password,
         image,
-        referredBy:referral
+        referredBy: referral,
+        wallet
     })
     if (user) {
         res.status(201).json({message:"registered successfully, please login with your details"})
     }
 })
+
+
 
 //signIn controller
 const signInHandler = asyncHandler(async (req, res) => {

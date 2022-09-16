@@ -11,3 +11,74 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* hr{
+ margin: 4rem;
+} */
+
+.heading_one:before,
+.heading_one:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 20%;
+   border: 1px solid #1A85FD;
+  /* margin: 0 6rem; */
+}
+
+/* .heading_one:before {
+  right: 0.5em;
+  margin-left: -50%;
+} */
+
+.heading_one:after {
+  left: 0.5em;
+  margin-right: -20%;
+   border: 1px solid #1A85FD;
+}
+
+ hr{
+     /* width: 50%; */
+     margin: auto;
+     margin-top: 5%;
+     margin-bottom: 5%;
+     border: 3px dashed #1A85FD;
+}
+
+.investment_card {
+  /* background-color: rgb(191, 191, 202, 0.7); */
+  border-radius: 20px;
+  padding: 2rem;
+  background-image: linear-gradient(to right, rgba(30, 30, 240, 0.4) , rgba(234, 234, 53, 0.5));
+}
+
+.investment_card .butt{
+  padding: 0.3rem 0.8rem;
+  border-radius: 10px;
+  border: none;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 0, 0.844);
+}
+.investment_container{
+  margin: 0.5rem 2.3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min-content,1fr));
+  grid-gap: 0.4rem;
+  /* background-color: #1A85FD; */
+}
+
+
+@media only screen and (min-width:700px){
+    .investment_container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(35rem,1fr));
+  grid-gap: 0.4rem;
+}
+}
+.investment_card h3,h5{
+  font-size: 23px;
+  padding-top: 0.5rem;
+  color: rgb(43, 61, 61);
+}
