@@ -14,7 +14,7 @@ const Investments = ({ name, amount, profit, duration, power,id }) => {
        
             <Row>
               <Col>
-                <h2 className='heading_one'>{name} Package</h2>
+                <h2 className='heading_one'>{name} </h2>
               </Col>
           </Row>
           <hr></hr>

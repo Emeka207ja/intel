@@ -31,7 +31,7 @@ const InvestmentDashboardScreen = () => {
           <div className="investment_card">
             <Row>
               <Col>
-                <h2 className='heading_one'>{selected?.id} Package</h2>
+                <h2 className='heading_one'>{selected?.id} </h2>
               </Col>
           </Row>
           <hr></hr>
