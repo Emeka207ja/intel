@@ -61,32 +61,39 @@ const UsdtSaleScreen = () => {
        
     }
     return (
-        <Container className="py-3">
+        <div className="usdt_container">
             <Row>
                 <Col md={4}>
-                    <h3 className="text-primary">Buy USDT at the best rate!</h3>
-                    <h5>We offer the best <span className="text-danger">RATE</span> in the market</h5>
+                    <h3 className="text-primary buy_usdt_heading">Buy Usdt at the best rate!</h3>
+                    <h5 className="Rate_heading">We offer the best <span className="text-danger">RATE</span> in the market</h5>
                     <div className="px-3  investment_card">
-                        <h3 className="text-center">Enjoy our premium prices </h3>
+                        <h3 className="text-center">Enjoy our <span className="text-primary">Pre<span className="text-success">Mium</span></span> prices </h3>
                         
                         <Row>
-                            <Col><h5>100 USDT - 400USDT</h5></Col>
-                            <Col><h5>&#8358; 630 per USDT</h5></Col>
+                            <Col><h5>100 Usdt - 400 Usdt</h5></Col>
+                            <Col><h5>&#8358; 630 per Usdt</h5></Col>
                         </Row>
                     
                         <Row>
-                            <Col><h5>500 USDT - 1000 USDT</h5></Col>
-                            <Col><h5>&#8358; 610 per USDT</h5></Col>
+                            <Col><h5>500 Usdt - 1000 Usdt</h5></Col>
+                            <Col><h5>&#8358; 610 per Usdt</h5></Col>
                         </Row>
     
-                       <h5>Minimium USDT purchaseable= 100 USDT</h5>
-                        <h5>maximium USDT purchaseable = 1000 USDT</h5>
+                       <Row>
+                            <Col><h5>Minimium Usdt purchaseable </h5></Col>
+                            <Col><h5> 100 Usdt</h5></Col>
+                       </Row>
+                       <Row>
+                            <Col><h5>Maximium Usdt purchaseable </h5></Col>
+                            <Col><h5> 1000 Usdt</h5></Col>
+                       </Row>
+                       
                     </div>
                 </Col>
                 <Col md={8}>
                     <Form onSubmit={handlePay} className="investment_card mt-3">
                         <Form.Group>
-                            <Form.Label>Enter number of USDT</Form.Label>
+                            <Form.Label>Enter number of Usdt</Form.Label>
                             <Form.Control type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
                             <Form.Text className={Number(amount) < 100 || Number(amount) > 1000 ? "text-danger" : "text-primary"}> &#8358;
                                 {Number(amount)<=400? Number(amount) * 630 :  Number(amount) * 610}</Form.Text>
@@ -109,7 +116,7 @@ const UsdtSaleScreen = () => {
                     </Form>
                 </Col>
             </Row>
-        </Container>
+        </div>
     )
 }
 

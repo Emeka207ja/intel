@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {Container,Card,Row,ListGroup,ListGroupItem,Col,Button} from "react-bootstrap"
 
-const Investments = ({ name, amount, profit, duration, power }) => {
+const Investments = ({ name, amount, profit, duration, power,id }) => {
   const navigate = useNavigate()
   const buyInvestment = () => {
-    navigate("/signin?redirect=buynow")
+    navigate(`/signin?redirect=${id}`)
   }
   return (
       <>

@@ -23,11 +23,13 @@ const reducer = combineReducers({
 
 
 const userInfoFromStorage = localStorage.getItem("loggedIn") ? JSON.parse(localStorage.getItem("loggedIn")) : null 
+const investorFromStorage = localStorage.getItem("investorSignup") ? JSON.parse(localStorage.getItem("investorSignup")) : null 
 const userStorage = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : []
 const paymentStorage = localStorage.getItem("allPayments") ? JSON.parse(localStorage.getItem("allPayments")) : []
 
 const initialState = {
     login: { userInfo: userInfoFromStorage },
+    investorSignup:{userInfo:investorFromStorage},
     fetchUsers: { users: userStorage },
     fetchAllProof:{paymentInfo:paymentStorage}
 }

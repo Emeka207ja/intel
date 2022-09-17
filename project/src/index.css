@@ -53,7 +53,31 @@ code {
   padding: 2rem;
   background-image: linear-gradient(to right, rgba(30, 30, 240, 0.4) , rgba(234, 234, 53, 0.5));
 }
+.investor_dashboard{
+   border-radius: 20px;
+  padding: 2rem;
+  background-image: linear-gradient(to right, rgba(30, 240, 180, 0.4) , rgba(234, 234, 53, 0.5));
 
+}
+.investor_dashboard h4{
+   padding: 0.5rem;
+   color:rgb(117, 138, 157);
+   font-size: 20px;
+}
+.investor_dashboard h3{
+  text-align: center;
+  color:rgb(117, 138, 157);
+   font-size: 25px;
+   padding: 0.5rem;
+}
+ .heading_selected,.heading_details {
+  text-align: center;
+  padding: 0.5rem;
+   color:rgb(117, 138, 157);
+}
+.heading_selected{
+  padding-top: 0.5rem;
+}
 .investment_card .butt{
   padding: 0.3rem 0.8rem;
   border-radius: 10px;
@@ -62,7 +86,7 @@ code {
   background-color: rgba(255, 255, 0, 0.844);
 }
 .investment_container{
-  margin: 0.5rem 2.3rem;
+  margin: 0.5rem 0.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(min-content,1fr));
   grid-gap: 0.4rem;
@@ -77,8 +101,32 @@ code {
   grid-gap: 0.4rem;
 }
 }
-.investment_card h3,h5{
-  font-size: 23px;
+.investment_card h3{
+  font-size: 19px;
   padding-top: 0.5rem;
-  color: rgb(43, 61, 61);
+  color: rgb(62, 81, 81);
+}
+
+.investment_card h5{
+   font-size: 20px;
+  padding-top: 0.5rem;
+  color: rgb(82, 95, 85);
+  /* font-style: Garamond; */
+  font-family: serif;
+}
+
+.usdt_container{
+  margin: 0.5rem 1rem;
+}
+.usdt_container .buy_usdt_heading, .Rate_heading{
+  font-size: 23px;
+  /* font-size: Fantasy; */
+  font-family:  Garamond;
+  text-align: center;
+}
+.copy_btn{
+  border: none;
+  padding: 0.4rem;
+  border-radius: 10px;
+  text-transform: uppercase;
 }
