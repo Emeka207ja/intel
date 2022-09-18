@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {Container,Card,Row,ListGroup,ListGroupItem,Col,Button} from "react-bootstrap"
 
-const Investments = ({ name, amount, profit, duration, power,id }) => {
+const Investments = ({ name, amount, profit, duration, power,id,daily }) => {
   const navigate = useNavigate()
   const buyInvestment = () => {
     navigate(`/signin?redirect=${id}`)
@@ -14,7 +14,7 @@ const Investments = ({ name, amount, profit, duration, power,id }) => {
        
             <Row>
               <Col>
-                <h2 className='heading_one'>{name} </h2>
+                <h2 className='heading_one'>{name} Pack</h2>
               </Col>
           </Row>
           <hr></hr>
@@ -36,7 +36,15 @@ const Investments = ({ name, amount, profit, duration, power,id }) => {
           </Row>
           <Row>
               <Col>
-                <h3>Monthly Profit</h3>
+                <h3>Daily Profit</h3>
+              </Col>
+              <Col>
+            <h3>$ {daily }</h3>
+              </Col>
+          </Row>
+          <Row>
+              <Col>
+                <h3>Three (3) days Profit</h3>
               </Col>
               <Col>
             <h3>$ {profit }</h3>

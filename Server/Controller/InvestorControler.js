@@ -1,10 +1,10 @@
 import investor from '../Model/UserInvestmentModel.js'
 import generateToken from '../Util/generateToken.js'
 import asyncHandler from 'express-async-handler'
+import { InvestmentDetails } from '../Model/InvestmentDetailsModel.js'
 
 
 const investorSignup = asyncHandler(async (req, res) => {
-    console.log(req.bod)
     const { name, email, password,wallet } = req.body
   
     if ( !name || !email  || !password) {
@@ -25,7 +25,7 @@ const investorSignup = asyncHandler(async (req, res) => {
         wallet
     })
     if (user) {
-        res.status(200).json({
+        res.status(201).json({
             _id: user._id,
             name: user.name,
             email: user.email,
@@ -35,4 +35,26 @@ const investorSignup = asyncHandler(async (req, res) => {
         })
     }
 })
-export {investorSignup}
+
+const investmentInfo = asyncHandler(async (req, res) => {
+    const { wallet, pack, amount, image } = req.body
+    console.log(req.user)
+    try {
+        if (!wallet || !pack || !amount || !image) {
+            res.status(404);
+            throw new Error("Fill all fields!")
+        }
+        const invest = await InvestmentDetails.create({
+            wallet,
+            pack,
+            amount,
+            image,
+            user:req.user._id
+        })
+        res.status(201).json({message:"Investments Details sent!"})
+    } catch (error) {
+        res.status(500);
+        throw new Error(error.message)
+    }
+})
+export {investorSignup,investmentInfo}

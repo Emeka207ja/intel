@@ -28,10 +28,10 @@ code {
   /* margin: 0 6rem; */
 }
 
-/* .heading_one:before {
+.heading_one:before {
   right: 0.5em;
-  margin-left: -50%;
-} */
+  /* margin-left: -50%; */
+}
 
 .heading_one:after {
   left: 0.5em;

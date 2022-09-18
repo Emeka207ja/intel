@@ -1,4 +1,4 @@
-import { FETCH_PROFILE_FAILED, FETCH_PROFILE_REQUEST, FETCH_PROFILE_SUCCESS, LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, UPDATE_PROFILE_FAILED, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS,INVESTOR_SIGNUP_REQUEST,INVESTOR_SIGNUP_SUCCESS,INVESTOR_SIGNUP_FAILED } from "../ActionCreators/LoginActionCreator";
+import { FETCH_PROFILE_FAILED, FETCH_PROFILE_REQUEST, FETCH_PROFILE_SUCCESS, LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, UPDATE_PROFILE_FAILED, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS,INVESTOR_SIGNUP_REQUEST,INVESTOR_SIGNUP_SUCCESS,INVESTOR_SIGNUP_FAILED,INVESTMENT_INFO_REQUEST,INVESTMENT_INFO_SUCCESS,INVESTMENT_INFO_FAILED } from "../ActionCreators/LoginActionCreator";
 
 export const loginReducer = (state = {}, { type, payload }) => {
     switch (type) {
@@ -24,6 +24,18 @@ export const investorSignupReducer = (state = {}, { type, payload }) => {
         case INVESTOR_SIGNUP_FAILED:
             return { loading: false, success: false, error: payload };
         
+        default:
+            return state
+    }
+}
+export const investmentInfoReducer = (state = {}, { type, payload }) => {
+    switch (type) {
+        case INVESTMENT_INFO_REQUEST:
+            return { sending: true };
+        case INVESTMENT_INFO_SUCCESS:
+            return { sending: false, success: true, investInfo: payload };
+        case INVESTMENT_INFO_FAILED:
+            return { sending: false, success: false, failed: payload };
         default:
             return state
     }

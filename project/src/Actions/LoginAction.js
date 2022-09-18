@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FETCH_PROFILE_FAILED, FETCH_PROFILE_REQUEST, FETCH_PROFILE_SUCCESS, LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, UPDATE_PROFILE_FAILED, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS,INVESTOR_SIGNUP_REQUEST,INVESTOR_SIGNUP_SUCCESS,INVESTOR_SIGNUP_FAILED } from '../ActionCreators/LoginActionCreator'
+import { FETCH_PROFILE_FAILED, FETCH_PROFILE_REQUEST, FETCH_PROFILE_SUCCESS, LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, UPDATE_PROFILE_FAILED, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS,INVESTOR_SIGNUP_REQUEST,INVESTOR_SIGNUP_SUCCESS,INVESTOR_SIGNUP_FAILED,INVESTMENT_INFO_REQUEST,INVESTMENT_INFO_SUCCESS,INVESTMENT_INFO_FAILED } from '../ActionCreators/LoginActionCreator'
 
 export const loginAction = (email, password) => async(dispatch, getState) => {
     try {
@@ -22,6 +22,31 @@ export const investSignupAction = (name,email, password,wallet) => async(dispatc
         localStorage.setItem("investorSignup",JSON.stringify(data))
     } catch (error) {
         dispatch({ type: INVESTOR_SIGNUP_FAILED, payload: error.response.data.message })
+        if(error){
+            console.log("error",error)
+        }
+    }
+}
+export const investmentAction = (wallet,pack,amount,image) => async(dispatch, getState) => {
+    try {
+        dispatch({ type: INVESTMENT_INFO_REQUEST })
+
+        const { investorSignup: {userInfo} } = getState()
+        console.log("token",userInfo.token)
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${userInfo.token}`
+           }
+        }
+
+        const { data } = await axios.post("/api/investment/investinfo", { wallet, pack, amount, image },config)
+        
+        dispatch({ type: INVESTMENT_INFO_SUCCESS, payload: data })
+        console.log("invest",data)
+
+    } catch (error) {
+        dispatch({ type: INVESTMENT_INFO_FAILED, payload: error.response.data.message })
         if(error){
             console.log("error",error)
         }
