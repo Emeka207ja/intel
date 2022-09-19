@@ -5,7 +5,7 @@ export const investmentFile = [
         daily_profit: "$ 333",
         profit: "$ 1,999",
         amount: "$ 1,000",
-        duration:"90 days"
+        duration:"3 days"
     },
     {
         id: "economy",
@@ -13,7 +13,7 @@ export const investmentFile = [
         daily_profit: "$ 1,665",
         profit: "$ 9,995",
         amount: "$ 5000",
-         duration:"90 days"
+         duration:"3 days"
     },
     {
         id: "standard",
@@ -21,6 +21,6 @@ export const investmentFile = [
         daily_profit: "$ 3,333",
         profit: "$ 19,999",
         amount: "$ 10,000",
-         duration:"90 days"
+         duration:"3 days"
     }
 ]
