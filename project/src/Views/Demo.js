@@ -1,4 +1,4 @@
-import react, { useState } from 'react'
+import react, { useState,useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Marquee from "react-fast-marquee";
 import MarqueeLTC from './Auth/User/MarqueeLTC'
@@ -6,8 +6,10 @@ import MarqueEth from './Auth/User/MarqueEth'
 import MarqueeUsdt from './Auth/User/MarqueeUsdt'
 import MarqueMatic from './Auth/User/MarqueMatic'
 import Marques from './Auth/User/Marques'
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 import './demo.css'
 const Demo = () => {
+    const tawkMessengerRef = useRef();
     const [show1,setShow1] = useState(false)
     const [show2,setShow2] = useState(false)
     const [show3, setShow3] = useState(false)
@@ -181,6 +183,10 @@ const Demo = () => {
                 <p className='text-white text-center mt-4'>&copy; INTEL WAVE </p>
             </section>
             </div>
+            {/* 63429aa137898912e96da37b/1geu2o2ia'; */}
+            <TawkMessengerReact
+                propertyId="63429aa137898912e96da37b"
+                widgetId="1geu2o2ia"/>
         </div>
      )
 }
