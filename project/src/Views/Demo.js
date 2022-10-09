@@ -184,9 +184,9 @@ const Demo = () => {
             </section>
             </div>
             {/* 63429aa137898912e96da37b/1geu2o2ia'; */}
-            <TawkMessengerReact
+            {/* <TawkMessengerReact
                 propertyId="63429aa137898912e96da37b"
-                widgetId="1geu2o2ia"/>
+                widgetId="1geu2o2ia"/> */}
         </div>
      )
 }
