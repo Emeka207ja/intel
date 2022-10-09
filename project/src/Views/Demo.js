@@ -8,6 +8,7 @@ import MarqueMatic from './Auth/User/MarqueMatic'
 import Marques from './Auth/User/Marques'
 import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 import './demo.css'
+import ChatWoot from '../Components/ChatWoot';
 const Demo = () => {
     const tawkMessengerRef = useRef();
     const [show1,setShow1] = useState(false)
@@ -183,10 +184,7 @@ const Demo = () => {
                 <p className='text-white text-center mt-4'>&copy; INTEL WAVE </p>
             </section>
             </div>
-            {/* 63429aa137898912e96da37b/1geu2o2ia'; */}
-            {/* <TawkMessengerReact
-                propertyId="63429aa137898912e96da37b"
-                widgetId="1geu2o2ia"/> */}
+           <ChatWoot/>
         </div>
      )
 }
