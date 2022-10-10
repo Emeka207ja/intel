@@ -130,3 +130,44 @@ code {
   border-radius: 10px;
   text-transform: uppercase;
 }
+
+.intelPrice{
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-top: 3rem;
+}
+.intelPrice img{
+  height: 100%;
+  padding-right: 0.4rem;
+  /* mix-blend-mode: multiply; */
+}
+.intelPrice p{
+  padding-top: 0.3rem;
+  font-size: 20px;
+  
+}
+.intelPrice .intel{
+ padding-right: 0.4rem;
+}
+
+.intelPrice span{
+  color:green;
+  font-weight: 700;
+}
+.download{
+   border: 2px solid rgb(100, 100, 136);
+    border-radius: 20px;
+     padding: 0.3rem;
+     margin: auto;
+     /* width: 50%; */
+}
+.download_apk{
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+.download img{
+ color: black;
+}

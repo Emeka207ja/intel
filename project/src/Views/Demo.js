@@ -7,6 +7,7 @@ import MarqueeUsdt from './Auth/User/MarqueeUsdt'
 import MarqueMatic from './Auth/User/MarqueMatic'
 import Marques from './Auth/User/Marques'
 import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+import IntelPrice from '../Components/IntelPrice';
 import './demo.css'
 import ChatWoot from '../Components/ChatWoot';
 const Demo = () => {
@@ -33,7 +34,8 @@ const Demo = () => {
                 <div className=''>
                       <h2>Emerging </h2>
                       <h2>Disruptive</h2>
-                      <h6>Online Decentralized Finance</h6>
+                        <h6>Online Decentralized Finance</h6>
+                        <IntelPrice/>
                   </div>
             </section>
             <section className='hero__intro'>
@@ -169,19 +171,24 @@ const Demo = () => {
                       </h6>
             </section>
             <section className='footer'>
-                <div className='footer__socials'>
-                    <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
-                        <img src="https://img.icons8.com/color/48/undefined/facebook-new.png" alt='facebook'/>
-                    </Link>
-                    <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
-                        <img src="https://img.icons8.com/color/48/undefined/twitter--v1.png" alt='twitter'/>
-                    </Link>
-                    <Link to='https://t.me/+5-u0ywve8lQzMWI0'>
-                        <img src="https://img.icons8.com/color/48/undefined/telegram-app--v1.png" alt='telegram'/>
-                    </Link>
+                 <div className='footer__socials'>
+                        <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
+                            <img src="https://img.icons8.com/color/48/undefined/facebook-new.png" alt='facebook'/>
+                        </Link>
+                        <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
+                            <img src="https://img.icons8.com/color/48/undefined/twitter--v1.png" alt='twitter'/>
+                        </Link>
+                        <Link to='https://t.me/+5-u0ywve8lQzMWI0'>
+                            <img src="https://img.icons8.com/color/48/undefined/telegram-app--v1.png" alt='telegram'/>
+                        </Link>    
+                   </div>
+                    <p className='download text-white text-center mt-4'>
+                        <img src="https://img.icons8.com/material-rounded/24/FAB005/download--v1.png"/>
+                        <a href="/assets/base.apk" download="intelwave.apk" className='download_apk '>Download Intelwave App</a>
+                    </p>
+                    <p className='text-white text-center mt-4'>&copy; INTEL    WAVE
+                    </p>
                     
-                </div>
-                <p className='text-white text-center mt-4'>&copy; INTEL WAVE </p>
             </section>
             </div>
            <ChatWoot/>
