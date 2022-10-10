@@ -18,6 +18,11 @@
     padding: 0.7rem;
     color: white;
 }
+.hero__emerging{
+     animation-name:moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
 .hero__intro{
     background-color: antiquewhite;
     grid-column:col-start 5/full-end ;
@@ -112,7 +117,22 @@
 }
 .footer__socials{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-content: center;
     justify-items: center;
+}
+
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80%{
+        opacity: 1;
+        transform: translateX(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

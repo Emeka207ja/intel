@@ -171,8 +171,8 @@ const Profile = () => {
               <div className="card-footer text-muted">
                   <h3>Contact Admin</h3>
                   <div>
-                      <a href='mailto:intelwave1@gmail.com'>Send Email</a>
-                      <p><a href='https://t.me/intelwave1'>chat admin</a></p>
+                      <a href='mailto:intelwaver@gmail.com'>Send Email</a>
+                      {/* <p><a href='https://t.me/intelwave1'>chat admin</a></p> */}
                   </div>
 
                         powered by Intel

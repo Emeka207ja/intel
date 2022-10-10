@@ -31,12 +31,15 @@ const Demo = () => {
               </Marquee> */}
         <div className='home__container'>
             <section className='hero__head'>
-                <div className=''>
-                      <h2>Emerging </h2>
-                      <h2>Disruptive</h2>
-                        <h6>Online Decentralized Finance</h6>
-                        <IntelPrice/>
-                  </div>
+                <div >
+                        <div className='hero__emerging'>
+                            <h2>Emerging </h2>
+                            <h2>Disruptive</h2>
+                            <h6>Online Decentralized Finance</h6>
+                     </div>
+                         <IntelPrice/>
+                    </div>
+                    
             </section>
             <section className='hero__intro'>
                  <div>
@@ -172,9 +175,9 @@ const Demo = () => {
             </section>
             <section className='footer'>
                  <div className='footer__socials'>
-                        <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
+                        {/* <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
                             <img src="https://img.icons8.com/color/48/undefined/facebook-new.png" alt='facebook'/>
-                        </Link>
+                        </Link> */}
                         <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
                             <img src="https://img.icons8.com/color/48/undefined/twitter--v1.png" alt='twitter'/>
                         </Link>

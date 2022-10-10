@@ -137,6 +137,9 @@ code {
   align-items: center;
   align-content: center;
   margin-top: 3rem;
+   animation-name: moveInBottom;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
 }
 .intelPrice img{
   height: 100%;
@@ -144,8 +147,9 @@ code {
   /* mix-blend-mode: multiply; */
 }
 .intelPrice p{
-  padding-top: 0.3rem;
-  font-size: 20px;
+  margin-top: 0.8rem;
+  font-size: 18px;
+  font-weight: 700;
   
 }
 .intelPrice .intel{
@@ -170,4 +174,20 @@ code {
 }
 .download img{
  color: black;
+}
+
+
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    80%{
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
