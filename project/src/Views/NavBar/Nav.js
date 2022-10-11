@@ -49,6 +49,7 @@ const NavMenu = () => {
                         <Nav.Link as ={Link} to="/home" className=' px-lg-5 '>Home</Nav.Link >
                         <Nav.Link as ={Link} to="/buyusdt" className=' px-lg-5 '>Buy Usdt</Nav.Link >
                         {/* <Nav.Link as ={Link} to="/invest" className=' px-lg-5 '>Investment Packages</Nav.Link > */}
+                        <Nav.Link as ={Link} to="/stake" className=' px-lg-5 '>Staking</Nav.Link >
                         <Nav.Link as ={Link} to="/live" className='px-lg-5 '>Live Market</Nav.Link >
                         {userInfo?.token&&userInfo?.isAdmin &&<Nav.Link as ={Link} to="/users" className=' px-lg-5'>Users</Nav.Link >}
                        {userInfo?.token&&userInfo?.isAdmin && <Nav.Link as ={Link} to="/proofs" className='px-lg-5'>Payment proofs</Nav.Link >}

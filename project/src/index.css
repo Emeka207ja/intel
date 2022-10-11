@@ -191,3 +191,51 @@ code {
         transform: translateY(0);
     }
 }
+/* STAKING */
+.staking_container{
+  margin: 0.2rem 1rem;
+}
+.staking_container h2{
+  font-size: 23px;
+  color: rgb(153, 153, 147);
+}
+.staking_container h3{
+  font-size: 19px;
+  color: rgb(153, 153, 147);
+}
+.staking_container .balance{
+  display:flex;
+  justify-content: space-between;
+}
+.staking_rate{
+  display: flex;
+  align-content:center;
+  justify-content:space-between;
+   height: 1.5rem;
+}
+.staking_rate img{
+ height: 100%;
+  border-radius: 20px;
+}
+.staking_rate span{
+  margin-left: 0.3rem;
+}
+.staking_duration--container{
+  margin-top: 0.7rem;
+}
+.staking_duration{
+  display: flex;
+}
+.staking_duration div{
+  padding: 10px;
+  border: 2px solid rgb(139, 139, 165);
+  margin-right: 1rem;
+  border-radius: 10px;
+  background-color: rgb(232, 232, 230);
+  cursor: pointer;
+}
+.staking_duration .active{
+  background-color: blue;
+  color: white;
+  transition: all 1s ease;
+}

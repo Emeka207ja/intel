@@ -24,6 +24,7 @@ import UsdtSaleScreen from './Views/UsdtSaleScreen';
 import InvestmentScreen from './Views/InvestmentScreen';
 import InvestmentAuthScreen from './Views/InvestmentAuthScreen';
 import InvestmentDashboardScreen from './Views/InvestmentDashboardScreen';
+import StakeScreen from './Views/StakeScreen';
 
 function App() {
   // "proxy": "http://127.0.0.1:5000",
@@ -53,7 +54,8 @@ function App() {
         <Route path='/buyusdt' exact element={<UsdtSaleScreen/> }/>
         <Route path='/invest' exact element={<InvestmentScreen/> }/>
         <Route path='/signin' exact element={<InvestmentAuthScreen/> }/>
-        <Route path='/investor/:id' exact element={<InvestmentDashboardScreen/> }/>
+        <Route path='/stake' exact element={<StakeScreen/> }/>
+        <Route path='/investor/:id' exact element={<InvestmentDashboardScreen />} />
       </Routes>
     </div>
   );

@@ -60,8 +60,10 @@ const UsdtSaleScreen = () => {
         })
        
     }
+  
     return (
         <div className="usdt_container">
+             
             <Row>
                 <Col md={4}>
                     <h3 className="text-primary buy_usdt_heading">Buy Usdt at the best rate!</h3>
@@ -116,6 +118,7 @@ const UsdtSaleScreen = () => {
                     </Form>
                 </Col>
             </Row>
+           
         </div>
     )
 }
