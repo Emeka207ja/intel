@@ -1,14 +1,24 @@
 import React,{useState,useEffect} from 'react'
 import Staking from "../Components/Staking"
 import {Form,Button} from "react-bootstrap"
-import {useSelector} from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { placeStake } from "../Actions/StakeAction"
+import { fetchUserProfile } from '../Actions/LoginAction'
+import  Message  from "../Components/Message"
+import  Loader  from "../Components/Loader"
+
 
 const StakeScreen = () => {
   const [selected, setSelected] = useState(30)
   const [amount, setAmount] = useState(500)
   const [valid, setValid] = useState(true)
+  const [rate, setRate] = useState(0)
+  const dispatch = useDispatch()
   const { userInfo } = useSelector(state => state.login)
-  const [low,setLow] = useState(false)
+  const { loading, success, error } = useSelector(state => state.placeStake)
+  const { profile } = useSelector(state => state.fetchProfile)
+  const [low, setLow] = useState(false)
+  const id = userInfo?._id
   const duration = [
     {
       id: 30,
@@ -23,28 +33,47 @@ const StakeScreen = () => {
       value:120
     }
   ]
-    const handleClick = ()=>{
-      console.log(amount)
-      window.alert("Development in progress Cheers!")
-      setAmount("")
-    }
+  const handleClick = () => {
+      dispatch(placeStake(amount,selected,rate,id))
+  }
+  // console.log(success)
   
 
   useEffect(() => {
+    dispatch(fetchUserProfile(userInfo?._id))
     if (amount < 5000) {
     setValid(false)
     } else { setValid(true) }
-    if (amount > userInfo?.intel) {
+    if (amount > profile?.intel) {
       setLow(true)
-    }else{setLow(false)}
+    } else { setLow(false) }
+    if (selected === 30) {
+      setRate(5)
+      }
+    if (selected === 90) {
+        setRate(7)
+      }
+    if (selected === 120) {
+        setRate(10)
+    }
+    
   }, [selected, amount, userInfo?.intel])
+  
+  useEffect(() => {
+    if (success) {
+      dispatch(fetchUserProfile(userInfo?._id))
+    }
+  },[ success])
 
   return (
     <div className='staking_container'>
+      {
+        loading ? <Loader /> : success ? <Message text={success.message} /> : error ? <Message text={error } />:"" 
+       }
       {/* <Staking/> */}
       <div className="balance">
         <h2> Staking</h2>
-        <h3 className={low&&"text-danger"}>Pf Bal.: {userInfo.intel } Intel Wave</h3>
+        <h3 className={low&&"text-danger"}>Pf Bal.: {profile?.intel } Intel Wave</h3>
        </div>
           <div className="staking_rate">
         <div>
@@ -61,13 +90,13 @@ const StakeScreen = () => {
           }
         </div>
       </div>
-      <Form  className="mt-2" >
+      <Form  className="mt-2" id="myForm">
         <Form.Group>
           <Form.Label>Choose amount of intel wave to stake</Form.Label>
           <Form.Control type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
           <Form.Text className={!valid?"text-danger":low?"text-danger":""}>{!valid?"minimum stakeable is 5000 intel wave coin":low?"insufficient intel Wave balance":"" }</Form.Text>
         </Form.Group>
-         <Button  variant="dark" className="mt-2 form-control" type="button" disabled={!valid||low}  onClick={handleClick}>Stake</Button>
+         <Button id="myForm"  variant="dark" className="mt-2 form-control" type="button" disabled={!valid||low}  onClick={handleClick}>Stake</Button>
       </Form>
     </div>
   )

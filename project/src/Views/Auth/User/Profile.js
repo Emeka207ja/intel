@@ -9,6 +9,8 @@ import MarqueEth from './MarqueEth'
 import MarqueeUsdt from './MarqueeUsdt'
 import MarqueeLTC from './MarqueeLTC'
 import MarqueMatic from './MarqueMatic';
+// import {fetchUserProfile} from "../Actions/loginAction"
+import {fetchUserProfile} from "../../../Actions/LoginAction"
 
 const Profile = () => {
     const [image, setImage] = useState()
@@ -23,6 +25,7 @@ const Profile = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { loading, error, userInfo, success } = useSelector(state => state.login)
+    const { profile } = useSelector(state => state.fetchProfile)
 
     const fetchCoinHandler = async() => {
         try {
@@ -44,6 +47,7 @@ const Profile = () => {
             navigate("/login")
         }
         fetchCoinHandler()
+        dispatch(fetchUserProfile(userInfo?._id))
         
     }, [userInfo, navigate])
     
@@ -107,9 +111,9 @@ const Profile = () => {
                   
                   <h5 className="card-title">welcome { userInfo&& userInfo.email}</h5>
                         {/* <p className="card-text">portfolio : 0 intel wave</p> */}
-                        <p className="card-text">user id : { userInfo&& userInfo._id}</p>
-                        <p className="card-text">intelwave portfolio : {coin&& coin}</p>
-                        <p className="card-text">referral bonus : { userInfo&& userInfo.referal}</p>
+                        <p className="card-text">user id : { profile?._id}</p>
+                        <p className="card-text">intelwave portfolio : {profile?.intel}</p>
+                        <p className="card-text">referral bonus : {profile?.referal}</p>
                        
                     </div>
               </div>
