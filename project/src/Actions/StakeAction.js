@@ -30,3 +30,39 @@ export const placeStake = (amount, selected, rate, id) => async (dispatch, getSt
         console.log(error)
     }
 }
+export const fetchSingleStake = ( id) => async (dispatch, getState) => {
+    try {
+        dispatch({ type:  FETCH_SINGLE_STAKE_REQUEST,})
+        const { login:{userInfo }} = getState();
+        const config = {
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${userInfo?.token}`
+            }
+        }
+        const { data } = await axios.get(`/api/stake/allstakes/${id}`,config)
+        console.log(data)
+        dispatch({type:FETCH_SINGLE_STAKE_SUCCESS, payload:data})
+    } catch (error) {
+        dispatch({ type: FETCH_SINGLE_STAKE_FAIL, payload: error?.response?.data.message })
+        console.log(error)
+    }
+}
+export const fetchAllStake = ( ) => async (dispatch, getState) => {
+    try {
+        dispatch({ type:  FETCH_ALL_STAKE_REQUEST,})
+        const { login:{userInfo }} = getState();
+        const config = {
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${userInfo?.token}`
+            }
+        }
+        const { data } = await axios.get("/api/stake/allstakes",config)
+        console.log(data)
+        dispatch({type:FETCH_ALL_STAKE_SUCCESS, payload:data})
+    } catch (error) {
+        dispatch({ type: FETCH_ALL_STAKE_FAIL, payload: error?.response?.data.message })
+        console.log(error)
+    }
+}

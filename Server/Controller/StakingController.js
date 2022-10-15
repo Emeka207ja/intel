@@ -47,7 +47,7 @@ const fetchAllStakes = asyncHandler(async (req, res) => {
 
 const fetchSingleStake = asyncHandler(async (req, res) => {
     try {
-        const stake = await StakingModel.findById(req.params.id).populate({path:"user",model:User}) 
+        const stake = await StakingModel.find({user:req.user._id})
         if (!stake) {
             res.status(404)
             throw new Error("stake does not exist")

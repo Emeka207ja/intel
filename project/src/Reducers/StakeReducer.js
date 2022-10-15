@@ -39,7 +39,7 @@ export const fetchSingleStakeReducer = (state={}, { type, payload }) => {
         case FETCH_SINGLE_STAKE_REQUEST:
             return { loading: true };
         case FETCH_SINGLE_STAKE_SUCCESS:
-            return { loading: true, stake: payload };
+            return { loading: false, stake: payload };
         case FETCH_SINGLE_STAKE_FAIL:
             return { loading: false, error: payload };
         default:

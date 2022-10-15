@@ -9,9 +9,10 @@ import MarqueEth from './MarqueEth'
 import MarqueeUsdt from './MarqueeUsdt'
 import MarqueeLTC from './MarqueeLTC'
 import MarqueMatic from './MarqueMatic';
+import Staking from '../../../Components/Staking';
 // import {fetchUserProfile} from "../Actions/loginAction"
 import {fetchUserProfile} from "../../../Actions/LoginAction"
-
+import { fetchSingleStake } from '../../../Actions/StakeAction';
 const Profile = () => {
     const [image, setImage] = useState()
     const [ImgLoading, setLoading] = useState(false)
@@ -26,6 +27,7 @@ const Profile = () => {
     const dispatch = useDispatch()
     const { loading, error, userInfo, success } = useSelector(state => state.login)
     const { profile } = useSelector(state => state.fetchProfile)
+    const { loading:stakeLoading,error:stakeError,stake } = useSelector(state => state.fetchSingleStake)
 
     const fetchCoinHandler = async() => {
         try {
@@ -41,14 +43,15 @@ const Profile = () => {
        } catch (error) {
         console.log(error.response)
        }
-   }
+    }
+    
     useEffect(() => {
         if (!userInfo) {
             navigate("/login")
         }
         fetchCoinHandler()
         dispatch(fetchUserProfile(userInfo?._id))
-        
+        dispatch(fetchSingleStake(userInfo?._id))
     }, [userInfo, navigate])
     
     const handleFile = async (e) => {
@@ -120,15 +123,19 @@ const Profile = () => {
           
           <div className="payment_section card text-center ">
              
-             
-              <Marquee className='react_marquee' speed={50} >
+              {
+                  stake?.length > 0 && <Staking stake={stake} Loading={stakeLoading} Error={stakeError} />
+             }
+              {/* <Marquee className='react_marquee' speed={50} >
                   <MarqueeLTC />
                   <Marques />
                   <MarqueEth />
                    <MarqueeUsdt />
                    <MarqueMatic />
-              </Marquee>
+              </Marquee> */}
+             
               {/* <marquee></marquee> */}
+             
                     <div className="card-header">
                        <h5>Intel Purchase Guideline</h5>
               </div>
@@ -182,7 +189,8 @@ const Profile = () => {
                         powered by Intel
               </div>
              
-           </div>
+          </div>
+          
     </div>
   )
 }
