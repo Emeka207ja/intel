@@ -19,7 +19,7 @@ const Staking = ({ Loading, Error, stake }) => {
   nextEvent.setDate(nextEvent.getDate()+24)
   return (
     <div className='stakes_container'>
-      <h3>Stakes</h3>
+      <h3>Stake</h3>
       {
         Loading ? <Loader /> : Error ? <Message text={Error} /> : <div>
           {
