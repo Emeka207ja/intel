@@ -18,11 +18,11 @@ const Staking = ({ Loading, Error, stake }) => {
   }
   console.log("rate", rate)
   console.log("amount",amount)
-  let date = new Date()
-  // nextEvent.setDate(nextEvent.getDate() + 2)
+  let nextEvent = new Date()
+  nextEvent.setDate(nextEvent.getSeconds() + 2)
   return (
     <div className='stakes_container'>
-      <h3>Stake</h3>
+      <h3>Stakes</h3>
       {
         Loading ? <Loader /> : Error ? <Message text={Error} /> : <div>
           {
@@ -34,6 +34,7 @@ const Staking = ({ Loading, Error, stake }) => {
                   <p>Duration(days) : {el.duration}</p>
                   <p> ROI:{(el.rate*el.amount*el.duration)/100*12}</p>
                   {/* <p>Due date : {  new Date(date.setDate(date.getDate()+ el.duration)).toLocaleDateString()}</p> */}
+                 
                 </div>
               )
             })
