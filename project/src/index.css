@@ -254,6 +254,8 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(min-content,2rem));
   align-items: center;
   justify-content: center;
+ 
+  border-radius: 10px;
 }
 .stakes_item p{
   border: 2px solid rgb(146, 146, 156);
@@ -262,9 +264,15 @@ code {
   margin-right: 0.4rem;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
+
  .stakes_item{
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+   border: 2px solid blue;
+  padding: 0.7rem 0;
+  margin: 0.7rem ;
   /* grid-template-columns: repeat(auto-fit, minmax(min-content,2rem));
   align-items: center;
   justify-content: center; */

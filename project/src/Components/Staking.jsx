@@ -32,7 +32,8 @@ const Staking = ({ Loading, Error, stake }) => {
                   <p>Amount: {el.amount}</p>
                   <p>Rate :{el.rate}%</p>
                   <p>Duration(days) : {el.duration}</p>
-                  <p> ROI:{(el.rate*el.amount*el.duration)/100*12}</p>
+                  <p> ROI:{(el.rate * el.amount * el.duration) / 100 * 12}</p>
+                  {/* <hr/> */}
                   {/* <p>Due date : {  new Date(date.setDate(date.getDate()+ el.duration)).toLocaleDateString()}</p> */}
                  
                 </div>
