@@ -29,13 +29,13 @@ const NavMenu = () => {
     }
     return (
         <div className=''>
-            {/* <Marquee className='react_marquee' speed={50} >
+            <Marquee className='react_marquee' speed={50} >
                   <MarqueeLTC />
                   <Marques />
                   <MarqueEth />
                    <MarqueeUsdt />
                    <MarqueMatic/>
-              </Marquee> */}
+              </Marquee>
             <Navbar  variant='dark' sticky='top' bg="dark" className='d-flex justify-content-between px-3 active navbar-fixed-top' expand='lg '>
                 <Navbar.Brand>
                     <img src={intel} height='20px' width={'20px'} />
