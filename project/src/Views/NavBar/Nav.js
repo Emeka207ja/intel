@@ -68,6 +68,9 @@ const NavMenu = () => {
                             <NavDropdown.Item >
                                 {userInfo?.token&&userInfo?.isAdmin &&<button className='btn' onClick={navigateToPaystackPaymentProofs}>Paystack Payments</button>}
                             </NavDropdown.Item>
+                            <NavDropdown.Item >
+                                {userInfo?.token&&userInfo?.isAdmin &&<NavDropdown.Item as ={Link} to="/updateprice">Prices</NavDropdown.Item>}
+                            </NavDropdown.Item>
                         </NavDropdown>   
                    </Nav>
                </Navbar.Collapse>

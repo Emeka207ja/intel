@@ -7,6 +7,7 @@ import PaymentRoute from './Routes/PaymentPostRoute.js'
 import AdminRoute from './Routes/AdminRoute.js'
 import InvestmentRoute from './Routes/InvestmentRoute.js'
 import StakeRoute from "./Routes/StakeRoutes.js"
+import PriceRoute from "./Routes/PriceRoute.js"
 import path from 'path'
 // import ProfileUploadRoute fro./Routes/upload.js.js'
 import upload from './Routes/upload.js'
@@ -25,6 +26,7 @@ app.use('/api/payment', PaymentRoute)
 app.use('/api/admin', AdminRoute)
 app.use('/api/investment', InvestmentRoute)
 app.use('/api/stake', StakeRoute)
+app.use('/api/price', PriceRoute)
 const __dirname = path.resolve()
 app.use('/project/public/profile', express.static(path.join(__dirname, '/project/public/profile')))
 

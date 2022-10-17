@@ -1,4 +1,4 @@
-import react, { useState,useRef } from 'react'
+import react, { useState,useRef ,useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import Marquee from "react-fast-marquee";
 import MarqueeLTC from './Auth/User/MarqueeLTC'
@@ -10,6 +10,8 @@ import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 import IntelPrice from '../Components/IntelPrice';
 import './demo.css'
 import ChatWoot from '../Components/ChatWoot';
+import { useDispatch, useSelector } from "react-redux"
+import { fetchPriceAction } from '../Actions/PriceAction';
 const Demo = () => {
     const tawkMessengerRef = useRef();
     const [show1,setShow1] = useState(false)
@@ -20,6 +22,8 @@ const Demo = () => {
     const [readMore2, setReadMore2] = useState(false)
     const [roadMap, setRoadMap] = useState(false)
 
+    const [intelPrice, setIntelPrice] = useState()
+   
     return (
         <div>
              {/* <Marquee className='react_marquee' speed={50} >

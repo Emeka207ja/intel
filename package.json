@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node Server/App",
     "server": "nodemon server/App",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix project && npm run build --prefix project"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix project && npm run build --prefix project",
+     "data:import": "node Server/Seeder",
+    "data:destroy": "node Server/Seeder -d"
   },
   "author": "",
   "license": "ISC",

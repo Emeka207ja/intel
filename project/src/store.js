@@ -15,6 +15,7 @@ import {
 } from "./Reducers/StakeReducer"
 import UsersPage from './Views/Auth/User/Admin/UsersPage'
 import { coinUpdateReducer, paystackPaymentReducer } from './Reducers/PaymentReducer'
+import { fetchPriceReducer,updatePriceReducer } from './Reducers/PriceReducer'
 
 const reducer = combineReducers({
     login: loginReducer,
@@ -31,7 +32,9 @@ const reducer = combineReducers({
     investmentInfo: investmentInfoReducer,
     placeStake: placeStakeReducer,
     fetchAllStake: fetchAllStakeReducer,
-    fetchSingleStake:fetchSingleStakeReducer
+    fetchSingleStake: fetchSingleStakeReducer,
+    fetchPrice: fetchPriceReducer,
+    updatePrice:updatePriceReducer
 })
 
 

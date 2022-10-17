@@ -2,7 +2,8 @@ import React,{useEffect,useState} from "react"
 import { Container, Row, Col, Form, Button, Card, ListGroup, ListGroupItem } from "react-bootstrap"
 import axios from "axios"
 import PaystackPop from '@paystack/inline-js'
-
+import { useDispatch, useSelector } from "react-redux"
+import { fetchPriceAction } from '../Actions/PriceAction'
 const UsdtSaleScreen = () => {
 
     const [amount, setAmount] = useState(0)
@@ -11,6 +12,9 @@ const UsdtSaleScreen = () => {
     const [payStackId, setPaystackId] = useState()
     const [lastname,setLastname] = useState("")
     const [email,setEmail] = useState("")
+
+     const dispatch = useDispatch()
+  const {price} = useSelector(state=>state.fetchPrice)
     
     const fetchPaystackKey = async () => {
         const config = {
@@ -35,8 +39,12 @@ const UsdtSaleScreen = () => {
         if (Number(amount)>= 500) {
            setValue(Number(amount)*610)
         }
-         fetchPaystackKey()
-    },[amount])
+        fetchPaystackKey()
+    }, [amount])
+    
+    useEffect(() => {  
+    dispatch(fetchPriceAction())
+    }, [dispatch])
 
     const handlePay = (e) => {
         e.preventDefault()
@@ -73,12 +81,12 @@ const UsdtSaleScreen = () => {
                         
                         <Row>
                             <Col><h5>100 Usdt - 400 Usdt</h5></Col>
-                            <Col><h5>&#8358; 630 per Usdt</h5></Col>
+                            <Col><h5>&#8358; {price&&price[0].usdtPrice1} per Usdt</h5></Col>
                         </Row>
                     
                         <Row>
                             <Col><h5>500 Usdt - 1000 Usdt</h5></Col>
-                            <Col><h5>&#8358; 610 per Usdt</h5></Col>
+                            <Col><h5>&#8358; {price&&price[0].usdtPrice2} per Usdt</h5></Col>
                         </Row>
     
                        <Row>
