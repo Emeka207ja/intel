@@ -29,10 +29,10 @@ const Staking = ({ Loading, Error, stake }) => {
             stake?.map(el => {
               return (
                 <div className='stakes_item'>
-                  <p>Amount: {el.amount}</p>
+                  <p>Amount : {el.amount} Intel wave</p>
                   <p>Rate :{el.rate}%</p>
                   <p>Duration(days) : {el.duration}</p>
-                  <p> ROI:{(el.rate * el.amount * el.duration) / 100 * 12}</p>
+                  <p> ROI(monthly):{((parseFloat(el.rate) * parseFloat(el.amount) * parseFloat(el.duration))/33600).toFixed(2)} Intel wave</p>
                   <p>staked: {  formatDistance(
                                   new Date(el.createdAt),
                                   new Date(),
