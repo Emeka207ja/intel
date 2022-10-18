@@ -156,8 +156,12 @@ code {
  padding-right: 0.4rem;
 }
 
-.intelPrice span{
+.priceSpan{
   color:green;
+  font-weight: 700;
+}
+.priceSpan2{
+  color:red;
   font-weight: 700;
 }
 .download{
@@ -259,6 +263,9 @@ code {
   border-radius: 10px;
   margin-bottom: 1rem;
   padding: 1rem;
+ 
+  /* background-color: #0e2c4e; */
+background-image: linear-gradient(to right, #5889c1 , rgba(211, 211, 205, 0.5));
 }
 .stakes_item p{
   border: 2px solid rgb(213, 213, 216);
@@ -266,6 +273,8 @@ code {
   padding:0.5rem ;
   margin-right: 0.4rem;
   box-shadow: 2px  3px 5px rgb(191, 191, 193);
+  font-size: 10px;
+  color: rgb(98, 110, 110);
 }
 
 @media only screen and (max-width: 500px) {
@@ -277,6 +286,7 @@ code {
    border: 2px solid rgb(225, 225, 226);
   padding: 0.7rem 0;
   margin: 0.7rem ;
+   padding-left: 0.5rem;
   /* grid-template-columns: repeat(auto-fit, minmax(min-content,2rem));
   align-items: center;
   justify-content: center; */

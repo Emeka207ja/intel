@@ -21,6 +21,11 @@ const priceSchema = mongoose.Schema({
         required: true,
         default:0
     },
+    tick:{
+        type: String,
+        required: true,
+        default:"up"
+    },
 
 }, {
     timestamps:true

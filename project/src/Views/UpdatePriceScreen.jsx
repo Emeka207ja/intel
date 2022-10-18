@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useDispatch,useSelector } from 'react-redux'
-import { Container, Form, Button,FormGroup,FormControl,FormLabel } from 'react-bootstrap'
+import { Container, Form, Button,FormGroup,FormControl,FormLabel,FormSelect } from 'react-bootstrap'
 import { updatePriceAction, fetchPriceAction } from '../Actions/PriceAction'
 import Loader from "../Components/Loader"
 import Message from "../Components/Message"
@@ -11,6 +11,7 @@ const UpdatePriceScreen = () => {
     const [usdtPrice2, setUsdtPrice2] = useState(610)
     const [intelPrice, setIntelPrice] = useState(0.1109)
     const [rate, setRate] = useState(0)
+    const [tick, setTick] = useState("up")
 
      const { price } = useSelector(state => state.fetchPrice)
      const { userInfo } = useSelector(state => state.login)
@@ -27,7 +28,8 @@ const UpdatePriceScreen = () => {
     
     const updatePriceHandler = (e) => {
         e.preventDefault()
-        dispatch(updatePriceAction(usdtPrice1, usdtPrice2, intelPrice, rate, id))
+        console.log(usdtPrice1, usdtPrice2, intelPrice, rate,tick, id)
+        dispatch(updatePriceAction(usdtPrice1, usdtPrice2, intelPrice, rate,tick, id))
         
     }
     const fetchPrice = async () => {
@@ -43,6 +45,7 @@ const UpdatePriceScreen = () => {
             setUsdtPrice1(data&&data[0].usdtPrice1)
             setUsdtPrice2(data&&data[0].usdtPrice2)
             setRate(data&&data[0].rate)
+            setTick(data&&data[0].tick)
             
         } catch (error) {
            console.log(error)
@@ -70,6 +73,13 @@ const UpdatePriceScreen = () => {
                   <FormLabel>Percentage Increase</FormLabel>
                   <FormControl value={ rate} onChange={(e)=>setRate(e.target.value)} />
               </FormGroup>
+              <FormGroup>
+                    <FormLabel>Select Tick</FormLabel>
+                    <FormSelect aria-label='Tick' value={tick} onChange={(e)=>setTick(e.target.value)}>
+                        <option value="up">up</option>
+                        <option value="down">down</option>
+                    </FormSelect>
+             </FormGroup>
               <Button className="mt-2" type="submit">Update</Button>
           </form>
           {/* <form  onSubmit={updatePriceHandler}>

@@ -16,7 +16,7 @@ const [Price,setPrice] = useState(0)
       <div className='intelPrice'>
           <img src='/assets/inte.jpg' alt='intel wave icon' />
           <p className='intel'>Intel Wave</p>
-      <p> <span>$ {price&&price[0].intelPrice}</span> <span>+{price&&price[0].rate}%</span>  </p>
+      <p className={price&&price[0].tick ==="down"? "priceSpan2":"priceSpan"}> <span >$ {price&&price[0].intelPrice}</span> <span>+{price&&price[0].rate}%</span>  </p>
     </div>
   )
 }
