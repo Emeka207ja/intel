@@ -3,7 +3,7 @@ import { updatePriceHandler, fetchPriceHandler } from "../Controller/PriceContro
 import {protect} from '../Util/protected.js'
 const router = express.Router()
 
-router.route("/allprice").get(protect, fetchPriceHandler);
-router.route("/allprice/:id").put(protect,updatePriceHandler,)
+router.route("/allprice").get(fetchPriceHandler);
+router.route("/allprice/:id").put(updatePriceHandler,)
 
 export default router
