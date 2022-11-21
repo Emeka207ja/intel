@@ -80,7 +80,7 @@ const StakeScreen = () => {
       {/* <Staking/> */}
       <div className="balance">
         <h2> Staking</h2>
-        <h3 className={low?"text-danger":profile?.intel<=0&&"text-danger"}>Pf Bal.: {profile? profile.intel: "loading" } Intel Wave</h3>
+        <h3 className={low?"text-danger":profile?.intel<=0?"text-danger":"text-primary"}>Pf Bal.: {profile? profile.intel: "loading" } Intel Wave</h3>
        </div>
           <div className="staking_rate">
         <div>
