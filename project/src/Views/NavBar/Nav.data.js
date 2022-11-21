@@ -11,11 +11,6 @@ export const navData = [
     },
     {
         id: 3,
-        name: "Stake",
-        path:"/stake"
-    },
-    {
-        id: 4,
         name: "Live Market",
         path:"/live"
     }
@@ -24,7 +19,7 @@ export const authAdminPath = [
     {
         id: 1,
         name: "Users",
-        path:"/user"
+        path:"/users"
     },
     {
         id: 2,
@@ -52,4 +47,16 @@ export const AdminDropDown = [
         name: "Update Price",
         path:"/updateprice"
     }
+]
+export const AuthUser = [
+    {
+        id: 1,
+        name: "Dashboard",
+        path:"/profile"
+    },
+    {
+        id: 3,
+        name: "Stake",
+        path:"/stake"
+    },
 ]

@@ -28,13 +28,13 @@ const Demo = () => {
         <div className='home__container'>
             <section className='hero__head'>
                 <div >
-                        <div className='hero__emerging'>
-                            <h2>Emerging </h2>
-                            <h2>Disruptive</h2>
-                            <h6>Online Decentralized Finance</h6>
-                     </div>
-                         <IntelPrice/>
+                    <div className='hero__emerging'>
+                        <h2>Emerging </h2>
+                        <h2>Disruptive</h2>
+                        <h6>Online Decentralized Finance</h6>
                     </div>
+                    <IntelPrice/>
+                </div>
                     
             </section>
             <section className='hero__intro'>
@@ -123,23 +123,23 @@ const Demo = () => {
             </section>
             <section className='coin__value'>
                 <div className='text-center'>
-                          <h6>Total supply</h6>
-                          <div className=''>=</div>
-                          <p>5,000,000,000</p>
-                          <h6>Decimal</h6>
-                          <div  className=''>=</div>
-                          <p>18</p>
-                          <h6>name</h6>
-                          <div className=''>=</div>
-                          <h6>"INTEL WAVE"</h6>
-                          <h6>symbol</h6>
-                          <div  className=''>=</div>
-                          <h6>INTEL</h6>
-                          <h6>address</h6>
-                          <div  className=''>=</div>
-                          <p>0x1279A923012fcd7cEADcE7e4d54E9D4A19251E91</p>
-                          
-                      </div>
+                    <h6>Total supply</h6>
+                    <div className=''>=</div>
+                    <p>5,000,000,000</p>
+                    <h6>Decimal</h6>
+                    <div  className=''>=</div>
+                    <p>18</p>
+                    <h6>name</h6>
+                    <div className=''>=</div>
+                    <h6>"INTEL WAVE"</h6>
+                    <h6>symbol</h6>
+                    <div  className=''>=</div>
+                    <h6>INTEL</h6>
+                    <h6>address</h6>
+                    <div  className=''>=</div>
+                    <p>0x1279A923012fcd7cEADcE7e4d54E9D4A19251E91</p>
+                    
+                </div>
                       
             </section>
             <section className='presale__info'>
@@ -161,45 +161,41 @@ const Demo = () => {
                     
                     <h6>you are eligible to buy with BNB smartchain with the equivalent amount in USDT </h6>
                     <p> <Link to ='/register'>Purchase IntelWave</Link></p>
-                    </div>
-                    <div className='usa_seal_image--container'>
-                        <Image src="/assets/usa_seal.jpeg" fluid/>
-                    </div>
-                   <h3>Our features</h3>
+               </div>
+
+                <div className='usa_seal_image--container'>
+                    <Image src="/assets/usa_seal.jpeg" fluid/>
+                </div>
+                    
+                <h3>Our features</h3>
                 <div className='features_section'>
-                     
-                    {
+                   {
                         featuresData?.map(data => {
                             return (
-                                <>
+                                <div key={data.id}>
                                     <Features image={ data.img} title={data.title} body={data.body} alt={data.alt} />
-                                </>
+                                </div>
                             )
                         })
                     }
                 </div>
-                    
-                    
+                  
             </section>
             <section className='footer'>
-                 <div className='footer__socials'>
-                        {/* <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
-                            <img src="https://img.icons8.com/color/48/undefined/facebook-new.png" alt='facebook'/>
-                        </Link> */}
-                        <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
-                            <img src="https://img.icons8.com/color/48/undefined/twitter--v1.png" alt='twitter'/>
-                        </Link>
-                        <Link to='https://t.me/+5-u0ywve8lQzMWI0'>
-                            <img src="https://img.icons8.com/color/48/undefined/telegram-app--v1.png" alt='telegram'/>
-                        </Link>    
-                   </div>
-                    <p className='download text-white text-center mt-4'>
-                        <img src="https://img.icons8.com/material-rounded/24/FAB005/download--v1.png" alt = "download"/>
-                        <a href="/assets/base.apk" download="intelwave.apk" className='download_apk '>Download Intelwave App</a>
-                    </p>
-                    <p className='text-white text-center mt-4'>&copy; INTEL   WAVE
-                    </p>
+                <div className='footer__socials'>
+                    <Link to='https://twitter.com/intelwave1?t=LjI0UWpyITofMJu3-9QikQ&s=09'>
+                        <img src="https://img.icons8.com/color/48/undefined/twitter--v1.png" alt='twitter'/>
+                    </Link>
+                    <Link to='https://t.me/+5-u0ywve8lQzMWI0'>
+                        <img src="https://img.icons8.com/color/48/undefined/telegram-app--v1.png" alt='telegram'/>
+                    </Link>    
+                </div>
                     
+                <p className='download text-white text-center mt-4'>
+                    <img src="https://img.icons8.com/material-rounded/24/FAB005/download--v1.png" alt = "download"/>
+                    <a href="/assets/base.apk" download="intelwave.apk" className='download_apk '>Download Intelwave App</a>
+                </p>
+                <p className='text-white text-center mt-4'>&copy; INTEL   WAVE</p>   
             </section>
             </div>
            <ChatWoot/>

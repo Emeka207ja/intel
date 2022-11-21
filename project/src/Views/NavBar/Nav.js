@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Marquee from "react-fast-marquee";
-import {navData,GeneralAuthRoute,authAdminPath,AdminDropDown} from "./Nav.data.js"
+import {navData,GeneralAuthRoute,authAdminPath,AdminDropDown,AuthUser} from "./Nav.data.js"
 import { LinkContainer } from "react-router-bootstrap"
 import {  Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import intel from '../Img/int.jpg'
@@ -48,7 +48,7 @@ const NavMenu = () => {
                         {
                             navData?.map(data => {
                                 return (
-                                    <LinkContainer to = {data.path}>
+                                    <LinkContainer to = {data.path} key={data.id}>
                                         <Nav.Link className=' px-lg-5 '>{ data.name}</Nav.Link>
                                     </LinkContainer>
                                 )
@@ -57,7 +57,7 @@ const NavMenu = () => {
                         {
                             authAdminPath?.map(data =>{
                                 if (userInfo?.token && userInfo?.isAdmin) {
-                                    return <LinkContainer to = {data.path}>
+                                    return <LinkContainer to = {data.path} key={data.id}>
                                         <Nav.Link className='px-lg-5'>{ data.name}</Nav.Link>
                                     </LinkContainer>
                                 }else{
@@ -71,25 +71,36 @@ const NavMenu = () => {
                             {
                                 GeneralAuthRoute?.map((data) => {
                                     if(!userInfo?.token){
-                                        return <LinkContainer to={data.path}>
+                                        return <LinkContainer to={data.path} key={data.id}>
                                             <NavDropdown.Item >{ data.name}</NavDropdown.Item>
                                         </LinkContainer>
                                     } else {
-                                        return null
+                                        return null;
                                     }
                                 })
                             }
                             {
                                 AdminDropDown?.map(data => {
                                     if(userInfo?.token&&userInfo?.isAdmin){
-                                        return <LinkContainer to={data.path}>
+                                        return <LinkContainer to={data.path} key={data.id}>
                                             <NavDropdown.Item >{ data.name}</NavDropdown.Item>
                                         </LinkContainer>
                                     }else{
-                                        return null
+                                        return null;
                                     }
-                            })
-                        }
+                               })
+                            }
+                            {
+                                AuthUser?.map(data => {
+                                    if (userInfo?.token) {
+                                        return <LinkContainer to={data.path} key={data.id}>
+                                            <NavDropdown.Item>{data.name }</NavDropdown.Item>
+                                        </LinkContainer>
+                                    }else{
+                                        return null;
+                                    }
+                                })
+                            }
                             
                              <NavDropdown.Item >
                                 {userInfo?.token&&<button className='btn' onClick={()=>{handleUpdate(userInfo?._id)}}>Update Profile</button>}

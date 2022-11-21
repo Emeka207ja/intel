@@ -18,6 +18,7 @@ const StakeScreen = () => {
   const { loading, success, error } = useSelector(state => state.placeStake)
   const { profile } = useSelector(state => state.fetchProfile)
   const [low, setLow] = useState(false)
+  const [disableBtn,setdisableBtn] = useState(true)
   const id = userInfo?._id
   const duration = [
     {
@@ -40,11 +41,11 @@ const StakeScreen = () => {
   
 
   useEffect(() => {
-    dispatch(fetchUserProfile(userInfo?._id))
+    dispatch(fetchUserProfile(id))
     if (amount < 5000) {
     setValid(false)
     } else { setValid(true) }
-    if (amount > profile?.intel) {
+    if (amount > userInfo?.intel) {
       setLow(true)
     } else { setLow(false) }
     if (selected === 30) {
@@ -57,14 +58,20 @@ const StakeScreen = () => {
         setRate(10)
     }
     
-  }, [selected, amount, userInfo?.intel])
+  }, [selected, amount,dispatch,valid,low,userInfo?.intel])
   
+  console.log(profile);
   useEffect(() => {
     if (success) {
       dispatch(fetchUserProfile(userInfo?._id))
     }
-  },[ success])
-
+  },[ success,dispatch,userInfo?._id])
+  useEffect(() => {
+    if (profile?.intel < amount) { setdisableBtn(true) }
+    if (amount < 5000) { setdisableBtn(true) }
+    if (profile?.intel <= 0) { setdisableBtn(true) }
+    else if(amount>=5000){setdisableBtn(false)}
+  },[amount,profile?.intel])
   return (
     <div className='staking_container'>
       {
@@ -73,11 +80,11 @@ const StakeScreen = () => {
       {/* <Staking/> */}
       <div className="balance">
         <h2> Staking</h2>
-        <h3 className={low&&"text-danger"}>Pf Bal.: {profile?.intel } Intel Wave</h3>
+        <h3 className={low?"text-danger":profile?.intel<=0&&"text-danger"}>Pf Bal.: {profile? profile.intel: "loading" } Intel Wave</h3>
        </div>
           <div className="staking_rate">
         <div>
-          <img src="/assets/inte.jpg" />
+          <img src="/assets/inte.jpg" alt="intel wave"/>
           <span>Intel Wave</span>
         </div>
         <h3>Monthly Rate : {selected===30? "5":selected===90?"7":selected===120&& "10" }%</h3>
@@ -94,9 +101,9 @@ const StakeScreen = () => {
         <Form.Group>
           <Form.Label>Choose amount of intel wave to stake</Form.Label>
           <Form.Control type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
-          <Form.Text className={!valid?"text-danger":low?"text-danger":""}>{!valid?"minimum stakeable is 5000 intel wave coin":low?"insufficient intel Wave balance":"" }</Form.Text>
+          <Form.Text className={!valid?"text-danger":low?"text-danger":""}>{disableBtn&&"low balance,minimum stakeable is 5000 intelwave" }</Form.Text>
         </Form.Group>
-         <Button id="myForm"  variant="dark" className="mt-2 form-control" type="button" disabled={!valid||low}  onClick={handleClick}>Stake</Button>
+         <Button id="myForm"  variant="dark" className="mt-2 form-control" type="button" disabled={disableBtn}  onClick={handleClick}>Stake</Button>
       </Form>
     </div>
   )
