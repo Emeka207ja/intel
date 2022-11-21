@@ -1,0 +1,28 @@
+.features_container{
+    padding: 1rem;
+    /* border: 2px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 20rem;
+}
+.features_image--container{
+    padding-bottom: 0.5rem;
+}
+.features_image--container img{
+    width:4rem ;
+    object-fit: cover;
+}
+.features_title{
+    padding-bottom: 0.5rem;
+}
+.features_title h3{
+    font-size: 22px;
+    text-align: center;
+}
+.features_body p{
+    font-size: 18px;
+    text-align: center;
+}

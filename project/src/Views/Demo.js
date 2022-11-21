@@ -1,19 +1,13 @@
-import react, { useState,useRef ,useEffect} from 'react'
+import { useState} from 'react'
 import { Link } from 'react-router-dom'
-import Marquee from "react-fast-marquee";
-import MarqueeLTC from './Auth/User/MarqueeLTC'
-import MarqueEth from './Auth/User/MarqueEth'
-import MarqueeUsdt from './Auth/User/MarqueeUsdt'
-import MarqueMatic from './Auth/User/MarqueMatic'
-import Marques from './Auth/User/Marques'
-import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 import IntelPrice from '../Components/IntelPrice';
 import './demo.css'
+import Features from '../Components/Features';
+import { featuresData } from '../Components/Features.data';
 import ChatWoot from '../Components/ChatWoot';
-import { useDispatch, useSelector } from "react-redux"
-import { fetchPriceAction } from '../Actions/PriceAction';
+import {Image} from "react-bootstrap"
+
 const Demo = () => {
-    const tawkMessengerRef = useRef();
     const [show1,setShow1] = useState(false)
     const [show2,setShow2] = useState(false)
     const [show3, setShow3] = useState(false)
@@ -21,8 +15,6 @@ const Demo = () => {
     const [readMore, setReadMore] = useState(false)
     const [readMore2, setReadMore2] = useState(false)
     const [roadMap, setRoadMap] = useState(false)
-
-    const [intelPrice, setIntelPrice] = useState()
    
     return (
         <div>
@@ -151,31 +143,43 @@ const Demo = () => {
                       
             </section>
             <section className='presale__info'>
-                 <h2 className=''>INTELWAVE PRESALE</h2>
-                       <h6>5000 intel= 27 USDT
-                        </h6>
-                        <h6>
-                            10,000 Intel = 55 USDT
-                        </h6>
-                        <h6>
-                            20,000 Intel = 100 USDT
-                        </h6>
-                        <h6>
-                            40,000 Intel = 200 USDT
-                        </h6>
-                        <h6> 
-                                60,000 Intel = 330 USDT
-                        </h6>
-                        <h6>
-                                102,000 Intel = 500 USD
-                                
-                        </h6>
-                        <h6>
-                                204,000 Intel = 1000 USDT
-                      </h6>
-                <h6>you are eligible to buy with BNB smartchain with the equivalent amount in USDT
-                   <p> <Link to ='/register'>Purchase IntelWave</Link></p>
-                      </h6>
+                <div className='presale_price--info'>
+                    <h2 className=''>INTELWAVE PRESALE</h2>
+                    <h6>5000 intel= 27 USDT  </h6>
+
+                    <h6>10,000 Intel = 55 USDT </h6>
+                    
+                    <h6>20,000 Intel = 100 USDT </h6>
+                    
+                    <h6> 40,000 Intel = 200 USDT </h6>
+                        
+                    <h6> 60,000 Intel = 330 USDT </h6>
+                            
+                    <h6>102,000 Intel = 500 USD</h6>
+                
+                    <h6> 204,000 Intel = 1000 USDT </h6>
+                    
+                    <h6>you are eligible to buy with BNB smartchain with the equivalent amount in USDT </h6>
+                    <p> <Link to ='/register'>Purchase IntelWave</Link></p>
+                    </div>
+                    <div className='usa_seal_image--container'>
+                        <Image src="/assets/usa_seal.jpeg" fluid/>
+                    </div>
+                   <h3>Our features</h3>
+                <div className='features_section'>
+                     
+                    {
+                        featuresData?.map(data => {
+                            return (
+                                <>
+                                    <Features image={ data.img} title={data.title} body={data.body} alt={data.alt} />
+                                </>
+                            )
+                        })
+                    }
+                </div>
+                    
+                    
             </section>
             <section className='footer'>
                  <div className='footer__socials'>
@@ -190,10 +194,10 @@ const Demo = () => {
                         </Link>    
                    </div>
                     <p className='download text-white text-center mt-4'>
-                        <img src="https://img.icons8.com/material-rounded/24/FAB005/download--v1.png"/>
+                        <img src="https://img.icons8.com/material-rounded/24/FAB005/download--v1.png" alt = "download"/>
                         <a href="/assets/base.apk" download="intelwave.apk" className='download_apk '>Download Intelwave App</a>
                     </p>
-                    <p className='text-white text-center mt-4'>&copy; INTEL    WAVE
+                    <p className='text-white text-center mt-4'>&copy; INTEL   WAVE
                     </p>
                     
             </section>

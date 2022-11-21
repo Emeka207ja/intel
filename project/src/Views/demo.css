@@ -90,14 +90,32 @@
 .presale__info{
     /* background-color: bisque; */
     grid-column: center-start/center-end;
-    display: grid;
+    /* display: grid;
     justify-items: center;
-    align-items: center;
+    align-items: center; */
     padding: 0.4rem;
     color: rgb(139, 136, 136);
     padding-top: 0.7rem;
     /* margin: 0 4rem; */
      /* padding: 4rem; */
+}
+.presale_price--info,.usa_seal_image--container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.usa_seal_image--container{
+    padding: 1rem 1.3rem;
+    margin-bottom: 2rem;
+}
+.features_section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+    grid-gap: 0.5rem;
+}
+.presale__info h3{
+    text-align: center;
 }
 .presale__info h2{
     font-size: 1.1rem;
@@ -135,4 +153,13 @@
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+@media only screen and (min-width:540px) and (max-width:540px){
+    .features_section{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+}
 }
