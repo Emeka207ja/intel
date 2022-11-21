@@ -69,6 +69,7 @@ const StakeScreen = () => {
     if (profile?.intel < amount) { setdisableBtn(true) }
     if (amount < 5000) { setdisableBtn(true) }
     if (profile?.intel <= 0) { setdisableBtn(true) }
+    else if(amount>profile?.intel){setdisableBtn(true)}
     else if(amount>=5000){setdisableBtn(false)}
   },[amount,profile?.intel])
   return (
