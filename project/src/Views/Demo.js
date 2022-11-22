@@ -5,7 +5,8 @@ import './demo.css'
 import Features from '../Components/Features';
 import { featuresData } from '../Components/Features.data';
 import ChatWoot from '../Components/ChatWoot';
-import {Image} from "react-bootstrap"
+import { Image } from "react-bootstrap"
+import {License} from "../Components/License.jsx"
 
 const Demo = () => {
     const [show1,setShow1] = useState(false)
@@ -164,7 +165,7 @@ const Demo = () => {
                </div>
 
                 <div className='usa_seal_image--container'>
-                    <Image src="/assets/usa_seal.jpeg" fluid/>
+                        <License/>
                 </div>
                     
                 <h3>Our features</h3>

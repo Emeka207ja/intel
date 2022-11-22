@@ -99,13 +99,17 @@
     /* margin: 0 4rem; */
      /* padding: 4rem; */
 }
-.presale_price--info,.usa_seal_image--container{
+.presale_price--info{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .usa_seal_image--container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
     padding: 1rem 1.3rem;
     margin-bottom: 2rem;
 }
