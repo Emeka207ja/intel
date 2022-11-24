@@ -13,6 +13,11 @@ export const navData = [
         id: 3,
         name: "Live Market",
         path:"/live"
+    },
+    {
+        id: 4,
+        name: "Investment packages",
+        path:"/invest"
     }
 ]
 export const authAdminPath = [
