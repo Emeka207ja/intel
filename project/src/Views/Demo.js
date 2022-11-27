@@ -163,6 +163,12 @@ const Demo = () => {
                     <h6>you are eligible to buy with BNB smartchain with the equivalent amount in USDT </h6>
                     <p> <Link to ='/register'>Purchase IntelWave</Link></p>
                </div>
+                <div className="freebitcoin">
+                    <a href='https://freebitco.in/?r=40625659'>
+                        <img src='https://static1.freebitco.in/banners/728x90-3.png' alt='freebitcoin' />
+                    </a>
+                    <a href='https://freebitco.in/?r=40625659' className='freebitcoin_link--earn'>Earn free BTC</a>
+               </div>
 
                 <div className='usa_seal_image--container'>
                         <License/>

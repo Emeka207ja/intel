@@ -99,11 +99,18 @@
     /* margin: 0 4rem; */
      /* padding: 4rem; */
 }
-.presale_price--info{
+.presale_price--info,.freebitcoin{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.freebitcoin_link--earn{
+    text-decoration: none;
+    font-size: 17px;
+    color: rgb(96, 96, 94);
+    font-weight: 700;
+    font-style: italic;
 }
 .usa_seal_image--container{
     display: flex;
@@ -124,6 +131,7 @@
 .presale__info h2{
     font-size: 1.1rem;
 }
+
 .presale__info h6{
     font-size: 1rem;
 }
