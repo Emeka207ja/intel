@@ -168,10 +168,85 @@
 }
 
 @media only screen and (min-width:540px) and (max-width:540px){
+     .home__container{
+        display: block;
+        width: 100%;
+    }
     .features_section{
         display: flex;
         justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;
 }
+}
+@media only screen and (max-width:768px){
+    .home__container{
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    .hero__head{
+        height: 40vh;
+        width: 100vw;
+    }
+     .freebitcoin{
+        width: 80%;
+        margin: auto;
+
+     }
+      .freebitcoin a img{
+        width: 100%;
+        object-fit: cover;
+      }
+        .features_section{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+/* @media only screen and (max-width:540px){
+    body{
+        width: 100%;
+    }
+    .home__container{
+        display: block;
+        width: inherit;
+    }
+    .hero__head{
+        height: 40vh;
+    }
+} */
+@media only screen and (max-width:412px){
+    .home__container{
+        display: block;
+        /* width: 100%; */
+    }
+    .hero__head{
+        height: 40vh;
+    }
+  
+    
+}
+@media only screen and (max-width:375px){
+    .home__container{
+        display: block;
+        width: 100%;
+        margin: 0;
+        /* margin-left: 0.7rem; */
+    }
+   
+}
+@media only screen and (max-width:280px){
+    .home__container{
+        display: block;
+        width: 100vw;
+        margin: 0;
+        /* margin-left: 0.7rem; */
+    }
+     .hero__head{
+        height: 40vh;
+        width: 100vw;
+    }
+   
 }
