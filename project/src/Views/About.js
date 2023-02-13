@@ -20,7 +20,7 @@ const About = () => {
       <form>
         <input type='file'onChange={handleFile} />
       </form>
-      <img src={`/uploads\image-1657558741986.jpg`}/>
+      <img src={`/uploads\image-1657558741986.jpg`} alt=""/>
     </div>
   )
 }
