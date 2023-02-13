@@ -1,3 +1,15 @@
+/* body{
+    background-image:linear-gradient(to bottom, #0a0a23, #000000),  url("./Img/bubbles.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+p{
+    font-size: 0.9rem;
+}
+h1,h2{
+    font-size: 1rem;
+}
 .home__container{
     display: grid;
     grid-template-rows: minmax(min-content,80vh) min-content repeat(4,min-content);
@@ -6,9 +18,10 @@
     margin: 0.5rem 0.6rem;
 }
 .hero__head{
-    background-color: green;
+    /* background-color: green; */
     grid-column:full-start/col-end 4 ;
-    background-image:linear-gradient(rgba(8,8,37,0.85),rgba(0,15,80,0.65)), url('./Img/disruptive.jpg');
+    background-image:linear-gradient(rgba(8,8,37,0.85),rgba(15, 16, 21, 0.65)), url('./Img/block.jpg');
+    /* background-image:linear-gradient(rgba(8,8,37,0.85),rgba(0,15,80,0.65)), url('./Img/disruptive.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,19 +31,47 @@
     padding: 0.7rem;
     color: white;
 }
+.block{
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+}
+.block img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 60%;
+    opacity: 0.7;
+}
 .hero__emerging{
      animation-name:moveInLeft;
     animation-duration: 2s;
     animation-timing-function: ease-out;
 }
 .hero__intro{
-    background-color: antiquewhite;
+    position: relative;
     grid-column:col-start 5/full-end ;
     display: grid;
     justify-items: center;
     align-items: center;
     padding: 0.4rem;
-    color: rgb(139, 136, 136);
+    color: #ACACAC;
+    text-align: center;
+    /* background-image:linear-gradient(rgba(8,8,37,0.85),rgba(15, 16, 21, 0.65)),url('./Img/block.jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hero__intro h1{
+    font-size: 1rem;
+}
+.dark3-borderimg{
+    position: absolute;
+    width: 100%;
+    top: -2rem;
+}
+.dark3-borderimg img{
+    width: 100%;
 }
 @media only screen and (max-width:700px){
     .hero__head{
@@ -42,62 +83,114 @@
 }
 .white__paper{
     /* background-color: aqua; */
+    margin-top: 3rem;
     grid-column: center-start/center-end;
      display: grid;
     justify-items: center;
     align-items: center;
     padding: 0.4rem;
     color: rgb(139, 136, 136);
-}
-.white__paper h1{
-    font-size: 1.5rem;
-}
-.faq{
-    background-color: antiquewhite;
-    grid-column: full-start/full-end;
-    /* display: grid;
-    justify-items: center;
-    align-items: center; */
-    padding-left: 0.7rem;
-    color: rgb(139, 136, 136);
-}
-.faq h4,h3{
-    font-size: 1.1rem;
-    font-family: 'Times New Roman', Times, serif;
-}
-.road__map{
-    /* background-color: antiquewhite; */
-    grid-column:full-start/col-end 4 ;
-     /* padding: 4rem; */
-     padding: 0.4rem;
-     color: rgb(236, 222, 222);
-    background-image:linear-gradient(rgba(8,8,37,0.85),rgba(0,15,80,0.65)), url('./Img/core.jpg');
+    text-align: center;
+     background-image:linear-gradient(rgba(8,8,37,0.85),rgba(15, 16, 21, 0.65)),url('./Img/block.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: grid;
-    align-items: center;
-   
+    padding-bottom: 3rem;
+}
+.globe--img{
+    width: 15rem;
+    height: 15rem;
+    margin: auto;
+}
+.globe--img img{
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20%;
+    opacity: 0.7;
+}
+.white__paper h1{
+    font-size: 1rem;
+}
+.why_intel{
+    margin-top: 2rem;
+}
+.why_intel h4{
+    font-size: 1rem;
+}
+.faq{
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    text-align: center;
+     background-image:linear-gradient(rgba(8,8,37,0.85),rgba(15, 16, 21, 0.65)),url('./Img/block.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+    grid-column: full-start/full-end;
+    
+    color: #ACACAC;
+    text-align: center;
+}
+.faq .faq_dark-borderimg{
+  position: absolute;
+ top: -2.5rem;
+ width: 100%;   
+}
+.faq_dark-borderimg img{
+    width: 100%;
+}
+.faq h3{
+    font-size: 1rem;
+}
+.faq h4{
+    font-size: 0.95rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+.road__map{
+    position: relative;
+    margin-top: 1rem;
+    grid-column:full-start/col-end 4 ;
+    text-align: center;
+    padding: 0.4rem;
+    color: rgb(242, 248, 247);
+     background-image:linear-gradient(rgba(8,8,37,0.85),rgba(15, 16, 21, 0.65)),url('./Img/block.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dark-2-borderImg{
+    position: absolute;
+    top: -3rem;
+    width: 100%;
+}
+.dark-2-borderImg img{
+    width: 100%;
+}
+.road__map h2{
+    font-size: 1rem;
 }
 .coin__value{
-    /* background-color: beige; */
-     grid-column:col-start 5/full-end ;
-      /* padding: 4rem; */
-      word-break: break-all;
-      padding: 1rem;
-       color: rgb(143, 134, 134);
+   
+    grid-column:col-start 5/full-end ;
+    
+    word-break: break-all;
+    padding: 1rem;
+    color: rgb(143, 134, 134);
+    background-image: url("./Img/bubbles.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .presale__info{
-    /* background-color: bisque; */
     grid-column: center-start/center-end;
-    /* display: grid;
-    justify-items: center;
-    align-items: center; */
     padding: 0.4rem;
-    color: rgb(139, 136, 136);
+    color: #ACACAC;
     padding-top: 0.7rem;
-    /* margin: 0 4rem; */
-     /* padding: 4rem; */
+    background-image: url("./Img/bubbles.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .presale_price--info,.freebitcoin{
     display: flex;
@@ -108,7 +201,7 @@
 .freebitcoin_link--earn{
     text-decoration: none;
     font-size: 17px;
-    color: rgb(96, 96, 94);
+    color: rgb(242, 248, 247);
     font-weight: 700;
     font-style: italic;
 }
@@ -124,6 +217,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
     grid-gap: 0.5rem;
+    background-image: url("./Img/bubbles.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
 .presale__info h3{
     text-align: center;
@@ -136,13 +234,17 @@
     font-size: 1rem;
 }
 .footer{
-    background-color: rgba(111, 107, 107, 0.4);
-     grid-column: full-start/full-end;
-      padding: 4rem;
-      border-radius: 30px;
+    background-image: url("./Img/bubbles.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: full-start/full-end;
+    padding: 4rem;
+    border-radius: 30px;
 }
 .showMore{
-    color: rgb(129, 193, 193);
+    color: rgb(27, 73, 73);
+    font-size: 0.7rem;
     /* margin-bottom: 0.4rem; */
 }
 .footer__socials{

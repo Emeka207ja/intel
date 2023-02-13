@@ -37,9 +37,18 @@ const Demo = () => {
                     <IntelPrice/>
                 </div>
                     
+                   
+                    
             </section>
-            <section className='hero__intro'>
+                <section className='hero__intro'>
+                    <div className='dark3-borderimg'>
+                         <img src="/assets/dark-boder.png" alt="" />
+                   </div>
+                    <div className="block">
+                        <img src="/assets/globe.jpg" alt=""/>
+                    </div>
                  <div>
+                    
                       <h1 className='text-center mt-2'>INTEL WAVE </h1>
                        <p className=' '>
                         Intel wave is a line of streamlined midrange consumer, workstation and enthusiast computer central processing units (CPUs) marketed by Intel Corporation. <br/>  
@@ -49,7 +58,10 @@ const Demo = () => {
 
                     </div>
             </section>
-            <section className='white__paper'>
+                <section className='white__paper'>
+                    <div className="globe--img">
+                        <img src="/assets/tower.jpg" alt=""/>
+                    </div>
                 <h1 className=''>INTEL WAVE PROTOCOL WHITE PAPER </h1>
                   <div className=''>
                        <p>
@@ -63,15 +75,21 @@ const Demo = () => {
                   </div>
                       {/* <h4>Benefits of holding, LP Acquisition, Manual Burn</h4> */}
                      
-                  <div className=''>
-                    <h4>Why intel wave</h4>
-                      <p>
-                        intel wave solves a host of problems. First, the reward of holding is conditional upon the volume of the token being traded. This mechanism aims to alleviate some of the downward sell pressure put on the token caused by earlier adopters selling their tokens after farming crazy high APY’s.{readMore2 && <span> Secondly, intel wave mechanism encourages holders to hang onto their tokens to gain upper hands which are based upon a percentages carried out and dependant upon the total tokens held by the owner.With just a total supply of five billion coins  deployed by the dev's this intends to be by far a great and major concerns of buyers and holders because the more sell the more lower in quality and the more expensive each token will be. Stakers can choose to stake on LP farming and gain 0.7 of every transaction made in the token sales.Due to low amount of supply there will be no manual burn</span>}
-                        {!readMore2?<span onClick={()=>{setReadMore2(prev=>!prev)}} className='showMore'>...READ MORE</span>:<span onClick={()=>{setReadMore2(prev=>!prev)}} className='showMore'>...READ LESS</span>}
-                      </p>
+                    <div className='why_intel'>
+                        <div className="globe--img">
+                            <img src="/assets/crypto.jpg" alt=""/>
+                        </div>
+                        <h4>Why intel wave</h4>
+                        <p>
+                            intel wave solves a host of problems. First, the reward of holding is conditional upon the volume of the token being traded. This mechanism aims to alleviate some of the downward sell pressure put on the token caused by earlier adopters selling their tokens after farming crazy high APY’s.{readMore2 && <span> Secondly, intel wave mechanism encourages holders to hang onto their tokens to gain upper hands which are based upon a percentages carried out and dependant upon the total tokens held by the owner.With just a total supply of five billion coins  deployed by the dev's this intends to be by far a great and major concerns of buyers and holders because the more sell the more lower in quality and the more expensive each token will be. Stakers can choose to stake on LP farming and gain 0.7 of every transaction made in the token sales.Due to low amount of supply there will be no manual burn</span>}
+                            {!readMore2?<span onClick={()=>{setReadMore2(prev=>!prev)}} className='showMore'>...READ MORE</span>:<span onClick={()=>{setReadMore2(prev=>!prev)}} className='showMore'>...READ LESS</span>}
+                        </p>
                     </div>
             </section>
-            <section className='faq'>
+                <section className='faq'>
+                    <div className='faq_dark-borderimg'>
+                         <img src="/assets/dark-boder.png" alt="" />
+                   </div>
                 <div>
                     <h3>FREQUENTLY ASKED QUESTIONS</h3>
                     <h4> What is the benefit of Intel wave</h4>
@@ -111,6 +129,9 @@ const Demo = () => {
                 </div>
             </section>
             <section className='road__map'>
+                <div className='dark-2-borderImg'>
+                        <img src="/assets/dark-boder.png" alt="" />
+                </div>
                 <h2>Project Road-Map</h2>
                 <p>➨phase 1 <span>Coin creation</span></p>
                 <p>➨phase 2 <span>Launched on pancakes swap</span></p>
@@ -141,6 +162,7 @@ const Demo = () => {
                     <p>0x1279A923012fcd7cEADcE7e4d54E9D4A19251E91</p>
                     
                 </div>
+                       
                       
             </section>
             <section className='presale__info'>

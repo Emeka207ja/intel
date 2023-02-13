@@ -7,6 +7,10 @@
     align-items: center;
     flex-wrap: nowrap;
     padding: 1rem;
+    background-image: url("../Views/Img/bubbles.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .license_image--container{
     width:40%;

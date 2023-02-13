@@ -6,6 +6,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  /* background-color: #030518; */
+  background:linear-gradient(to bottom, #0a0a23, #000000);
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  color: white;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -118,12 +127,16 @@ code {
 .usdt_container{
   margin: 0.5rem 1rem;
 }
-.usdt_container .buy_usdt_heading, .Rate_heading{
-  font-size: 23px;
+.usdt_container .buy_usdt_heading{
+  font-size: 18px;
   /* font-size: Fantasy; */
   font-family:  Garamond;
   text-align: center;
 }
+ .Rate_heading{
+  font-size: 15px;
+  text-align: center;
+ }
 .copy_btn{
   border: none;
   padding: 0.4rem;
