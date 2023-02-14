@@ -29,7 +29,11 @@ h1,h2{
     justify-items: center;
     align-items: center;
     padding: 0.7rem;
-    color: white;
+    color: #ACACAC;
+    font-size: 1rem;
+}
+.hero__head h2{
+    font-size: 1rem;
 }
 .block{
     position: relative;
@@ -176,11 +180,14 @@ h1,h2{
     
     word-break: break-all;
     padding: 1rem;
-    color: rgb(143, 134, 134);
+    color: #ACACAC;
     background-image: url("./Img/bubbles.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.coin__value p{
+    font-size: 0.9rem;
 }
 .presale__info{
     grid-column: center-start/center-end;
@@ -191,12 +198,16 @@ h1,h2{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 .presale_price--info,.freebitcoin{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.presale_price--info p{
+    font-size: 0.8rem;
 }
 .freebitcoin_link--earn{
     text-decoration: none;
@@ -227,12 +238,33 @@ h1,h2{
     text-align: center;
 }
 .presale__info h2{
-    font-size: 1.1rem;
-}
-
-.presale__info h6{
     font-size: 1rem;
 }
+.presale__info p a{
+    text-decoration: none;
+    color: rgb(220, 219, 231);
+    /* border: 1px solid white; */
+    border-radius: 20px;
+    background-color: rgb(26, 20, 79);
+    padding: 0.3rem;
+    box-shadow: 2px 1px 2px rgb(227, 221, 221);
+}
+.presale__info p{
+    text-align: center;
+}
+.presale_img{
+    width:15em;
+    height: 15rem;
+    margin: auto;
+    padding-bottom: 0.7rem;
+}
+.presale_img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
 .footer{
     background-image: url("./Img/bubbles.png");
     background-position: center;

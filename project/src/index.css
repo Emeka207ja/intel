@@ -150,18 +150,17 @@ code {
   align-items: center;
   align-content: center;
   margin-top: 3rem;
-   animation-name: moveInBottom;
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
+  animation-name: moveInBottom;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
 }
 .intelPrice img{
   height: 100%;
   padding-right: 0.4rem;
-  /* mix-blend-mode: multiply; */
 }
 .intelPrice p{
   margin-top: 0.8rem;
-  font-size: 18px;
+  font-size: 0.9rem;
   font-weight: 700;
   
 }
@@ -178,10 +177,10 @@ code {
   font-weight: 700;
 }
 .download{
-   border: 2px solid rgb(100, 100, 136);
-    border-radius: 20px;
-     padding: 0.3rem;
-     margin: auto;
+  border: 2px solid rgb(100, 100, 136);
+  border-radius: 20px;
+  padding: 0.3rem;
+  margin: auto;
      /* width: 50%; */
 }
 .download_apk{

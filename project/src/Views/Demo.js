@@ -31,8 +31,8 @@ const Demo = () => {
                 <div >
                     <div className='hero__emerging'>
                         <h2>Emerging </h2>
-                        <h2>Disruptive</h2>
-                        <h6>Online Decentralized Finance</h6>
+                        <h2>Decentralized</h2>
+                        <h2>Finance</h2>
                     </div>
                     <IntelPrice/>
                 </div>
@@ -86,11 +86,15 @@ const Demo = () => {
                         </p>
                     </div>
             </section>
-                <section className='faq'>
-                    <div className='faq_dark-borderimg'>
-                         <img src="/assets/dark-boder.png" alt="" />
-                   </div>
+            <section className='faq'>
+                <div className='faq_dark-borderimg'>
+                    <img src="/assets/dark-boder.png" alt="" />
+                </div>
                 <div>
+                    <div className="presale_img">
+                        <img src="/assets/faq.jpg" alt=""/>
+                    </div>
+                        
                     <h3>FREQUENTLY ASKED QUESTIONS</h3>
                     <h4> What is the benefit of Intel wave</h4>
                     {show4 &&
@@ -144,45 +148,50 @@ const Demo = () => {
                {!roadMap?<span onClick={()=>setRoadMap(prev=>!prev)}>Read all</span>:<span  onClick={()=>setRoadMap(prev=>!prev)}>Read Less</span>}
             </section>
             <section className='coin__value'>
-                <div className='text-center'>
-                    <h6>Total supply</h6>
+                 <div className='text-center'>
+                    <div className="presale_img">
+                        <img src="/assets/supply.jpg" alt=""/>
+                    </div>
+                    <p>Total supply</p>
                     <div className=''>=</div>
                     <p>5,000,000,000</p>
-                    <h6>Decimal</h6>
+                    <p>Decimal</p>
                     <div  className=''>=</div>
                     <p>18</p>
-                    <h6>name</h6>
+                    <p>name</p>
                     <div className=''>=</div>
-                    <h6>"INTEL WAVE"</h6>
-                    <h6>symbol</h6>
+                    <p>"INTEL WAVE"</p>
+                    <p>symbol</p>
                     <div  className=''>=</div>
-                    <h6>INTEL</h6>
-                    <h6>address</h6>
+                    <p>INTEL</p>
+                    <p>address</p>
                     <div  className=''>=</div>
-                    <p>0x1279A923012fcd7cEADcE7e4d54E9D4A19251E91</p>
-                    
+                    <p>0x1279A923012fcd7cEADcE7e4d54E9D4A19251E91</p> 
                 </div>
                        
                       
             </section>
-            <section className='presale__info'>
+                <section className='presale__info'>
+                <div className="presale_img">
+                  <img src="/assets/sales.jpg" alt=""/>
+                </div>
                 <div className='presale_price--info'>
                     <h2 className=''>INTELWAVE PRESALE</h2>
-                    <h6>5000 intel= 27 USDT  </h6>
+                    <p>5000 intel= 27 USDT  </p>
 
-                    <h6>10,000 Intel = 55 USDT </h6>
+                    <p>10,000 Intel = 55 USDT </p>
                     
-                    <h6>20,000 Intel = 100 USDT </h6>
+                    <p>20,000 Intel = 100 USDT </p>
                     
-                    <h6> 40,000 Intel = 200 USDT </h6>
+                    <p> 40,000 Intel = 200 USDT </p>
                         
-                    <h6> 60,000 Intel = 330 USDT </h6>
+                    <p> 60,000 Intel = 330 USDT </p>
                             
-                    <h6>102,000 Intel = 500 USD</h6>
+                    <p>102,000 Intel = 500 USD</p>
                 
-                    <h6> 204,000 Intel = 1000 USDT </h6>
+                    <p> 204,000 Intel = 1000 USDT </p>
                     
-                    <h6>you are eligible to buy with BNB smartchain with the equivalent amount in USDT </h6>
+                    <p>you are eligible to buy with BNB smartchain with the equivalent amount in USDT </p>
                     <p> <Link to ='/register'>Purchase IntelWave</Link></p>
                </div>
                 <div className="freebitcoin">
@@ -220,10 +229,10 @@ const Demo = () => {
                     </Link>    
                 </div>
                     
-                <p className='download text-white text-center mt-4'>
+                {/* <p className='download text-white text-center mt-4'>
                     <img src="https://img.icons8.com/material-rounded/24/FAB005/download--v1.png" alt = "download"/>
                     <a href="/assets/base.apk" download="intelwave.apk" className='download_apk '>Download Intelwave App</a>
-                </p>
+                </p> */}
                 <p className='text-white text-center mt-4'>&copy; INTEL   WAVE</p>   
             </section>
             </div>
