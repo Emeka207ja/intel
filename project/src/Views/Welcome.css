@@ -1,7 +1,7 @@
 .Home{
     position: relative;
     height: 100vh;
-    background-image:linear-gradient(rgba(8,8,37,0.85),rgba(0,15,80,0.65)), url('./Img/int.jpg');
+    background-image:linear-gradient(rgb(28, 5, 5),rgba(2, 7, 30, 0.65),rgba(3, 3, 19, 0.85)), url('./Img/polygon-bg.png');
      background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,7 +9,7 @@
 }
 .Intel{
     position: absolute;
-    color: #e6f6fb;
+    color: #ACACAC;
     /* align-items: center; */
     transform: translate(-50%,-50%);
     top: 50%;
@@ -17,26 +17,31 @@
     text-align: center;
     
 }
+
 .wave{
     display: block;
     letter-spacing: 12px;
-    font-size: 40px;
+    font-size: 0.8rem;
     animation-name: moveInLeft;
     animation-duration: 2s;
     animation-timing-function: ease-out;
 }
 .disrupt{
+    padding-top: 0.8rem;
     display: block;
     letter-spacing: 4px;
-    font-size: 20px;
-    border-bottom: 5px solid goldenrod;
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgb(144, 54, 54);
+    font-style: italic;
     /* animation-name: moveInRight;
     animation-duration: 2s;
     animation-timing-function: ease-out; */
 }
 .para{
+    padding-top: 0.8rem;
      letter-spacing: 2px;
-    font-size: 20px;
+    font-size: 0.6rem;
+    font-style: italic;
      animation-name: moveInLeft;
     animation-duration: 2s;
     animation-timing-function: ease-out;
@@ -45,6 +50,7 @@
      animation-name: moveInBottom;
     animation-duration: 2s;
     animation-timing-function: ease-out;
+    font-size: 0.5rem;
 }
 
 @keyframes moveInLeft {

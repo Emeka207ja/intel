@@ -7,3 +7,6 @@
     opacity: 7;
     /* max-height: 20vh; */
 }
+.custom_class{
+    background-color: rgb(5, 5, 21);
+}

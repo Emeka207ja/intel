@@ -70,10 +70,10 @@ const Welcome = () => {
                
                 </h2>
                 <h2>
-                     <span className='disrupt'>DISRUPTIVE TECHNOLOGY</span>
+                     <span className='disrupt'>Decentralized Finance</span>
                 </h2>
-                <p className='para'>changing the crypto narative</p>
-                <button className='btn btn-primary btnAnime' onClick={MoveAway}>learn more</button>
+                <p className='para'>changing the blockchain finance narative</p>
+                {/* <button className='btn btn-primary btnAnime' onClick={MoveAway}>learn more</button> */}
             </div>
         </div>
     )

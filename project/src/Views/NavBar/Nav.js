@@ -37,7 +37,7 @@ const NavMenu = () => {
                    <MarqueeUsdt />
                    <MarqueMatic/>
               </Marquee>
-            <Navbar collapseOnSelect variant='dark' sticky='top' bg="dark" className='d-flex justify-content-between px-3 active navbar-fixed-top' expand='lg '>
+            <Navbar collapseOnSelect variant='dark' sticky='top'  className='d-flex justify-content-between px-3 active navbar-fixed-top custom_class' expand='lg '>
                 <Navbar.Brand>
                     <img src={intel} height='20px' width={'20px'} alt = "intelwave"/>
                     <span className='px-2'>INTEL WAVE</span>

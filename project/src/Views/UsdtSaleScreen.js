@@ -74,28 +74,28 @@ const UsdtSaleScreen = () => {
              
             <Row>
                 <Col md={4}>
-                    <h3 className="text-primary buy_usdt_heading">Buy Usdt at the best rate!</h3>
-                    <h5 className="Rate_heading">We offer the best <span className="text-danger">RATE</span> in the market</h5>
+                    <h3 className=" buy_usdt_heading">Buy Usdt at the best rate!</h3>
+                    <h5 className="Rate_heading">We offer the best <span className="rate">RATE</span> in the market</h5>
                     <div className="px-3  investment_card">
-                        <h3 className="text-center">Enjoy our <span className="text-primary">Pre<span className="text-success">Mium</span></span> prices </h3>
+                        <p className="premium--price">Premium Prices</p>
                         
                         <Row>
-                            <Col><h5>100 Usdt - 400 Usdt</h5></Col>
-                            <Col><h5>&#8358; {price&&price[0].usdtPrice1} per Usdt</h5></Col>
+                            <Col><p>100 Usdt - 400 Usdt</p></Col>
+                            <Col><p>&#8358; {price&&price[0].usdtPrice1} per Usdt</p></Col>
                         </Row>
                     
                         <Row>
-                            <Col><h5>500 Usdt - 1000 Usdt</h5></Col>
-                            <Col><h5>&#8358; {price&&price[0].usdtPrice2} per Usdt</h5></Col>
+                            <Col><p>500 Usdt - 1000 Usdt</p></Col>
+                            <Col><p>&#8358; {price&&price[0].usdtPrice2} per Usdt</p></Col>
                         </Row>
     
                        <Row>
-                            <Col><h5>Minimium Usdt purchaseable </h5></Col>
-                            <Col><h5> 100 Usdt</h5></Col>
+                            <Col><p>Minimium Usdt purchaseable </p></Col>
+                            <Col><p> 100 Usdt</p></Col>
                        </Row>
                        <Row>
-                            <Col><h5>Maximium Usdt purchaseable </h5></Col>
-                            <Col><h5> 1000 Usdt</h5></Col>
+                            <Col><p>Maximium Usdt purchaseable </p></Col>
+                            <Col><p> 1000 Usdt</p></Col>
                        </Row>
                        
                     </div>
