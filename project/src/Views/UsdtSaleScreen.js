@@ -15,6 +15,7 @@ const UsdtSaleScreen = () => {
 
      const dispatch = useDispatch()
   const {price} = useSelector(state=>state.fetchPrice)
+  console.log('price',price)
     
     const fetchPaystackKey = async () => {
         const config = {
@@ -80,22 +81,22 @@ const UsdtSaleScreen = () => {
                         <p className="premium--price">Premium Prices</p>
                         
                         <Row>
-                            <Col><p>100 Usdt - 400 Usdt</p></Col>
+                            <Col><p>{price&&price[0].min1Usdt} Usdt - {price&&price[0].max1Usdt} Usdt</p></Col>
                             <Col><p>&#8358; {price&&price[0].usdtPrice1} per Usdt</p></Col>
                         </Row>
                     
                         <Row>
-                            <Col><p>500 Usdt - 1000 Usdt</p></Col>
+                            <Col><p>{price&&price[0].min2Usdt} Usdt - {price&&price[0].max2Usdt} Usdt</p></Col>
                             <Col><p>&#8358; {price&&price[0].usdtPrice2} per Usdt</p></Col>
                         </Row>
     
                        <Row>
                             <Col><p>Minimium Usdt purchaseable </p></Col>
-                            <Col><p> 100 Usdt</p></Col>
+                            <Col><p> {price&&price[0].min1Usdt} Usdt</p></Col>
                        </Row>
                        <Row>
                             <Col><p>Maximium Usdt purchaseable </p></Col>
-                            <Col><p> 1000 Usdt</p></Col>
+                            <Col><p> {price&&price[0].max2Usdt} Usdt</p></Col>
                        </Row>
                        
                     </div>

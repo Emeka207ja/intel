@@ -10,6 +10,10 @@ const UpdatePriceScreen = () => {
     const [usdtPrice1, setUsdtPrice1] = useState()
     const [usdtPrice2, setUsdtPrice2] = useState(610)
     const [intelPrice, setIntelPrice] = useState(0.1109)
+    const [max1Usdt, setMax1Usdt] = useState(400)
+    const [min1Usdt, setMin1Usdt] = useState(100)
+    const [max2Usdt, setMax2Usdt] = useState(1000)
+    const [min2Usdt, setMin2Usdt] = useState(500)
     const [rate, setRate] = useState(0)
     const [tick, setTick] = useState("up")
 
@@ -46,6 +50,10 @@ const UpdatePriceScreen = () => {
             setUsdtPrice2(data&&data[0].usdtPrice2)
             setRate(data&&data[0].rate)
             setTick(data&&data[0].tick)
+            setMax1Usdt(data&&data[0].max1Usdt)
+            setMin1Usdt(data&&data[0].min1Usdt)
+            setMax2Usdt(data&&data[0].max2Usdt)
+            setMin2Usdt(data&&data[0].min2Usdt)
             
         } catch (error) {
            console.log(error)
@@ -58,29 +66,48 @@ const UpdatePriceScreen = () => {
           }
           <form onSubmit={updatePriceHandler} className="mt-2">
               <FormGroup>
-                  <FormLabel>Price of 100Usdt-400Usdt</FormLabel>
+                  <FormLabel className='text-white'> ${min1Usdt} usdt </FormLabel>
+                  <FormControl value={ min1Usdt} onChange={(e)=>setMin1Usdt(e.target.value)} />
+              </FormGroup>
+              <FormGroup>
+                  <FormLabel className='text-white'> ${max1Usdt} usdt </FormLabel>
+                  <FormControl value={max1Usdt} onChange={(e)=>setMax1Usdt(e.target.value)} />
+              </FormGroup>
+              <FormGroup>
+                  <FormLabel className='text-white'> ${min2Usdt} usdt </FormLabel>
+                  <FormControl value={ min2Usdt} onChange={(e)=>setMin2Usdt(e.target.value)} />
+              </FormGroup>
+              <FormGroup>
+                  <FormLabel className='text-white'> ${max2Usdt} usdt </FormLabel>
+                  <FormControl value={max2Usdt} onChange={(e)=>setMax2Usdt(e.target.value)} />
+              </FormGroup>
+              
+              
+             
+              <FormGroup>
+                  <FormLabel className='text-white'>Price of ${min1Usdt} usdt - ${max1Usdt} usdt</FormLabel>
                   <FormControl value={ usdtPrice1} onChange={(e)=>setUsdtPrice1(e.target.value)} />
               </FormGroup>
               <FormGroup>
-                  <FormLabel>Price of 500Usdt-1000Usdt</FormLabel>
-                  <FormControl value={ usdtPrice2} onChange={(e)=>setUsdtPrice2(e.target.value)}/>
+                  <FormLabel className='text-white'>Price of ${min2Usdt} usdt - ${max2Usdt} usdt</FormLabel>
+                  <FormControl value={ usdtPrice2} onChange={(e)=>setUsdtPrice2(e.target.value)}/>¬
               </FormGroup>
               <FormGroup>
-                  <FormLabel>Intel Wave Price</FormLabel>
+                  <FormLabel className='text-white'>Intel Wave Price</FormLabel>
                   <FormControl value={ intelPrice} onChange={(e)=>setIntelPrice(e.target.value)} />
               </FormGroup>
               <FormGroup>
-                  <FormLabel>Percentage Increase</FormLabel>
+                  <FormLabel className='text-white'>Percentage Increase</FormLabel>
                   <FormControl value={ rate} onChange={(e)=>setRate(e.target.value)} />
               </FormGroup>
               <FormGroup>
-                    <FormLabel>Select Tick</FormLabel>
+                    <FormLabel className='text-white'>Select Tick</FormLabel>
                     <FormSelect aria-label='Tick' value={tick} onChange={(e)=>setTick(e.target.value)}>
                         <option value="up">up</option>
                         <option value="down">down</option>
                     </FormSelect>
              </FormGroup>
-              <Button className="mt-2" type="submit">Update</Button>
+              <Button className="mt-2 text-white" type="submit">Update</Button>
           </form>
           {/* <form  onSubmit={updatePriceHandler}>
               <button>submit</button>
