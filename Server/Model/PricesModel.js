@@ -6,6 +6,26 @@ const priceSchema = mongoose.Schema({
         required: true,
         default:630
     },
+    min1Usdt: {
+        type: Number,
+        required: true,
+        default:100
+    },
+    max1Usdt: {
+        type: Number,
+        required: true,
+        default:400
+    },
+    min2Usdt: {
+        type: Number,
+        required: true,
+        default:500
+    },
+    max2Usdt: {
+        type: Number,
+        required: true,
+        default:1000
+    },
     usdtPrice2:{
         type: Number,
         required: true,
