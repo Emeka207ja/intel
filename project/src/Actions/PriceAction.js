@@ -24,7 +24,12 @@ export const fetchPriceAction = () => async(dispatch, getState) => {
         dispatch({type:FETCH_PRICE_FAIL,payload:error.response.data.message})
     }
 }
-export const updatePriceAction = (usdtPrice1,usdtPrice2,intelPrice,rate,tick,id) => async(dispatch, getState) => {
+export const updatePriceAction = (usdtPrice1, usdtPrice2,
+    intelPrice, rate,
+    tick, id,
+    max1Usdt, min1Usdt,
+    max2Usdt,
+    min2Usdt) => async (dispatch, getState) => {
     dispatch({ type:  UPDATE_PRICE_REQUEST })
     try {
         const { login: { userInfo } } = getState()
@@ -34,7 +39,13 @@ export const updatePriceAction = (usdtPrice1,usdtPrice2,intelPrice,rate,tick,id)
                 Authorization: `Bearer ${userInfo?.token}`
             }
         }
-        const { data } = await axios.put(`/api/price/allprice/${id}`,{usdtPrice1,usdtPrice2,intelPrice,rate,tick}, config) 
+        const { data } = await axios.put(`/api/price/allprice/${id}`, {
+            usdtPrice1, usdtPrice2,
+            intelPrice, rate,
+            tick, max1Usdt,
+            min1Usdt, max2Usdt,
+            min2Usdt
+        }, config) 
         dispatch({type: UPDATE_PRICE_SUCCESS,payload:data})
     } catch (error) {
         dispatch({type: UPDATE_PRICE_FAIL,payload:error.response.data.message})

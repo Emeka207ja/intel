@@ -23,10 +23,10 @@ const updatePriceHandler = asyncHandler(async (req, res) => {
             prices.usdtPrice2 = parseFloat(usdtPrice2) || prices.usdtPrice2,
             prices.intelPrice = parseFloat(intelPrice) || prices.intelPrice,
             prices.rate = parseFloat(rate) || prices.rate
-            prices.min1Usdt = parseFloat(min1Usdt) || prices.min1Usdt
-            prices.max1Usdt = parseFloat(max1Usdt) || prices.max1Usdt
-            prices.min2Usdt = parseFloat(min2Usdt) || prices.min2Usdt
-            prices.max2Usdt = parseFloat(max2Usdt) || prices.max3Usdt
+            prices.min1Usdt = parseFloat(min1Usdt) || prices.min1Usdt;
+            prices.max1Usdt = parseFloat(max1Usdt) || prices.max1Usdt;
+            prices.min2Usdt = parseFloat(min2Usdt) || prices.min2Usdt;
+            prices.max2Usdt = parseFloat(max2Usdt) || prices.max3Usdt;
             prices.tick = tick || prices.tick
         }
         await prices.save()

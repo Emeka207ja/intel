@@ -33,7 +33,11 @@ const UpdatePriceScreen = () => {
     const updatePriceHandler = (e) => {
         e.preventDefault()
         console.log(usdtPrice1, usdtPrice2, intelPrice, rate,tick, id)
-        dispatch(updatePriceAction(usdtPrice1, usdtPrice2, intelPrice, rate,tick, id))
+        dispatch(updatePriceAction(usdtPrice1,
+            usdtPrice2, intelPrice,
+            rate, tick, id,
+            max1Usdt,min1Usdt,max2Usdt,min2Usdt
+        ))
         
     }
     const fetchPrice = async () => {
@@ -66,30 +70,30 @@ const UpdatePriceScreen = () => {
           }
           <form onSubmit={updatePriceHandler} className="mt-2">
               <FormGroup>
-                  <FormLabel className='text-white'> ${min1Usdt} usdt </FormLabel>
+                  <FormLabel className='text-white'> Min : {min1Usdt} usdt </FormLabel>
                   <FormControl value={ min1Usdt} onChange={(e)=>setMin1Usdt(e.target.value)} />
               </FormGroup>
               <FormGroup>
-                  <FormLabel className='text-white'> ${max1Usdt} usdt </FormLabel>
+                  <FormLabel className='text-white'> Max : {max1Usdt} usdt </FormLabel>
                   <FormControl value={max1Usdt} onChange={(e)=>setMax1Usdt(e.target.value)} />
               </FormGroup>
               <FormGroup>
-                  <FormLabel className='text-white'> ${min2Usdt} usdt </FormLabel>
+                  <FormLabel className='text-white'> Min : {min2Usdt} usdt </FormLabel>
                   <FormControl value={ min2Usdt} onChange={(e)=>setMin2Usdt(e.target.value)} />
               </FormGroup>
               <FormGroup>
-                  <FormLabel className='text-white'> ${max2Usdt} usdt </FormLabel>
+                  <FormLabel className='text-white'> Max : {max2Usdt} usdt </FormLabel>
                   <FormControl value={max2Usdt} onChange={(e)=>setMax2Usdt(e.target.value)} />
               </FormGroup>
               
               
              
               <FormGroup>
-                  <FormLabel className='text-white'>Price of ${min1Usdt} usdt - ${max1Usdt} usdt</FormLabel>
+                  <FormLabel className='text-white'>Price of {min1Usdt} usdt - {max1Usdt} usdt</FormLabel>
                   <FormControl value={ usdtPrice1} onChange={(e)=>setUsdtPrice1(e.target.value)} />
               </FormGroup>
               <FormGroup>
-                  <FormLabel className='text-white'>Price of ${min2Usdt} usdt - ${max2Usdt} usdt</FormLabel>
+                  <FormLabel className='text-white'>Price of {min2Usdt} usdt - {max2Usdt} usdt</FormLabel>
                   <FormControl value={ usdtPrice2} onChange={(e)=>setUsdtPrice2(e.target.value)}/>¬
               </FormGroup>
               <FormGroup>
