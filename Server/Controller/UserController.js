@@ -117,7 +117,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
         }
         const resetToken = user.generateResetToken(user._id)
        await user.save()
-       const resetUrl = `http://intelwave.herokuapp.com/resetpassword/${resetToken}`
+       const resetUrl = `http://intelwave.adaptable.app/resetpassword/${resetToken}`
        const message = `
        <h1> you have requested a password reset</h1>
        <p>please go to this link to reset your password,Link is valid for 15 minutes</p>
@@ -164,11 +164,11 @@ const resetPasswordContoller = asyncHandler(async (req, res) => {
         user.resetPasswordToken = undefined
        user. resetPasswordExpire = undefined
         await user.save()
-        res.status(201).json({message:"password changed successfully,welcome back!"})
+        res.status(201).json({ message: "password changed successfully,welcome back!" });
     } catch (error) {
         console.log(error)
         res.status(500)
-        throw new Error(error.message)
+        throw new Error(error.message);
     }
 })
 const fetchPaystackPublicKey = asyncHandler(async (req, res) => {
